@@ -10,13 +10,33 @@ btnStartEl.textContent = 'Start'
 btnStopEl.classList.add('btn-stop')
 btnStopEl.textContent = 'Stop'
 
-pEl.textContent = new Date() // per avere testo subito stampato su DOM (senza che aspetta 1sec a stampare)
+const currentDate = new Date()
+
+const hour = currentDate.getHours()
+const minute = currentDate.getMinutes()
+const second = currentDate.getSeconds()
+
+
+
+
+// const currentDate = new Date()
+// const hour = currentDate.getHours().toString()
+// console.log(hour)
+// pEl.textContent = hour
+
+
+
+// pEl.textContent = new Date()
+// const formatter = new Intl.DateTimeFormat({ huor: '2-digit', minute: '2-digit', second: '2-digit'})
+// const formattedTime = formatter.format(pEl)
+// console.log(formattedTime)
+
 
 divEl.append(pEl, btnStartEl, btnStopEl)
 console.log(divEl)
 
 // pEl.textContent = new Date()
-console.log(new Date())
+// console.log(new Date())
 
 // let intervalNumber = 0 
 
