@@ -10,20 +10,19 @@ btnStartEl.textContent = 'Start'
 btnStopEl.classList.add('btn-stop')
 btnStopEl.textContent = 'Stop'
 
-const currentDate = new Date()
-
-const hour = currentDate.getHours()
-const minute = currentDate.getMinutes()
-const second = currentDate.getSeconds()
-
-
-
-
 // const currentDate = new Date()
-// const hour = currentDate.getHours().toString()
-// console.log(hour)
-// pEl.textContent = hour
 
+// const hour = currentDate.getHours()
+// const minute = currentDate.getMinutes()
+// const second = currentDate.getSeconds()
+
+// const formatter = ????????? 
+
+
+const currentDate = new Date()
+const hour = currentDate.getHours().toString()
+console.log(hour)
+pEl.textContent = hour
 
 
 // pEl.textContent = new Date()
