@@ -1,0 +1,25 @@
+/* FOOTER ***************** */
+
+/* .footer-container {
+    width: 100%;
+} */
+
+.footer-container img {
+    width: 100%;
+    display: block;
+    position: relative;
+    bottom: -220px;
+}
+
+@media (min-width: 1024px) { 
+
+    .footer {
+        display: none;
+    }
+
+    .footer-container img {
+        width: 100%;
+        /* display: block; */
+    }
+
+}

@@ -1,0 +1,427 @@
+/* GENERAL */
+/* #703d9a
+#b2540d */
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  background: #000000f3;
+  
+}
+
+/* LAYOUT */
+
+.layout{
+  margin: 0 auto;
+  background-image: url('/img/festival2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color:rgba(0, 0, 0, 0.5) */
+  /* max-width: 1200px; */
+}
+
+/* START NAVBAR */
+
+.top-header {
+  background-color: #000000f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.top-header img {
+  width: 110px;
+  height: 110px;
+  padding: 20px;
+}
+
+.menu {
+  flex-grow: 1;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  padding: 10px 50px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: var(--color-generalred);
+}
+
+/* END NAVBAR */
+
+/* ------------------------------------- */
+
+/* START BOTTOM HEADER */
+
+.bottom-header{
+  /* margin-top: 20px; */
+  text-align: center;
+  width: 100%;
+  height: 25vh;
+  background-color: rgba(116, 116, 116, 0.468)
+  /* background-image: url(https://picsum.photos/seed/picsum/200/300);
+  background-size: cover; 
+  background-position: center; */
+} 
+
+.title{
+  padding: 10px;
+  font-weight: lighter;
+  color: aliceblue;
+}
+
+.sub-title1 {
+  padding: 20px;
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 20px;
+  color: aliceblue;
+}
+
+
+.btn-add {
+  background-color: #703d9a;
+  font-size: 14px;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-add > a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-add:hover {
+  background-color: #b2540d;
+}
+
+/* END BOTTOM HEADER */
+
+/* ----------------------------------------- */
+
+
+/* Card List*/
+
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 15px;
+}
+
+.card{
+  width: 220px;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid #3d3d3d;
+  background: rgb(129,142,217);
+  background: linear-gradient(90deg, rgba(129,142,217,1) 0%, rgba(110,29,161,0.49749629080118696) 100%);
+  font-weight: 300;
+  box-shadow: 2px 2px #3d3d3d;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1)
+}
+
+.card__img{
+  border-radius: 50%;
+  width: 100%;
+  background-color: rgba(255,255,255, 0.563);
+}
+
+.card__title,
+.card__type{
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.card__id{
+  padding: 6px 20px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  color: black;
+}
+
+/* END CARD LIST  */
+
+/* ----------------------------------------- */
+
+/* START POPUP */
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color:  #703d9a;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #b2540d;
+}
+
+.popup {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.btn-add > a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-add:hover {
+  background-color: #b2540d;
+  color: white;
+}
+
+.btn-add > a:hover {
+  text-decoration: none;
+  color: white;
+}
+/* END POPUP */
+
+/* ------------------------------------------------ */
+
+/* START FORM */
+
+.form {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  background-image: url('/img/festival1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.styled-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.styled-form table {
+  width: 100%;
+}
+
+.styled-form td {
+  padding: 10px;
+}
+
+.styled-form input[type="text"],
+.styled-form input[type="number"],
+.styled-form input[type="email"],
+.styled-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.styled-form button {
+  background-color: #703d9a;
+  color: white;
+  font-size: 14px;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.styled-form button:hover {
+  background-color: #b2540d;
+}
+
+/* END FORM */
+
+/* ---------------------------------------- */
+
+/* START FAV ARTIST */
+
+.sub-title {
+  padding: 20px;
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 20px;
+  color: aliceblue;
+}
+
+.fav-artist {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.box-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.box-container img {
+  border-radius: 50%;
+}
+
+.arrow {
+  color: aliceblue;
+  align-self: center;
+  font-size: 30px;
+  /* width: 200px; */
+}
+
+/* ---------------------------------------------------- */
+
+/* FOOTER start */
+footer {
+  background-color:var(--color-footer);
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+#logo-footer {
+  padding: 60px;
+}
+
+.footer-contatti img {
+  width:20px;
+  height: 20px;
+  padding-right: 8px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-contatti-info {
+  display: flex;
+  align-items: center;
+}
+
+.footer-contatti-info p {
+  font-size: small;
+  color: #fff;
+}
+
+.social-icons img{
+  width: 30px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* .social-icons {
+  padding: 80px 60px;
+} */
+
+.icon-container {
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+}
+
+.icon-container img {
+  display: block; 
+  margin: auto; /* Imposta i margini a "auto" per centrare l'immagine /
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-gold);
+  border-radius: 5px;
+  text-decoration: none;
+  z-index: 999; / il pulsante sia sopra gli altri contenuti */
+}
+
+.scroll-to-top:hover {
+  background-color: #fff;
+}
+/* FOOTER END */

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist For Fun</title>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script src="./index.js" type="module"></script>
+</head>
+<body>
+   <div class="layout">
+      <!-- header -->
+      <header id="header-home">
+         <div class="top-header">
+             <img class="logo" src="./icone/AFF_white.svg" alt="Logo" >
+             <div class="menu">
+             <!-- start navbar -->
+                 <nav>
+                     <ul>
+                        <li><a href="#main">home</a></li>
+                        <li><a href="#form">register</a></li>
+                        <li><a href="#events">events</a></li>
+                        <li><a href="#footer">contacts</a></li>
+                     </ul>
+                 </nav>
+                 <!-- end navbar -->
+             </div>
+         </div>
+             <!-- header -->
+         <div class="bottom-header header">
+            <h1 class="title">Artist For Fun</h1>
+            <h2 class="sub-title1">Join our world of connections: Become part of our community, connecting with millions of other artists!</h2>
+            <div>
+              <button class="btn-add"><a href="#form">Join Us</a></button>
+            </div>
+            <div>
+            <button class="btn-add btn-addArtist">Add Artist</button>
+          </div>
+         </div>
+     </header>
+      <!-- end header -->
+    <!-- main -->
+    <main class="main"></main>
+    <!-- end main -->
+
+    <!-- START POP UP-->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2 class="ttx">Contact me</h2>
+        <p class="ttx">Get yourself known and let me listen to your tracks</p>
+        <form id="infoForm">
+          <div class="form-group">
+            <label for="inputName">Name:</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="inputEmail">Email address:</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="inputLink">Link:</label>
+            <input type="url" class="form-control" id="inputLink" placeholder="Enter your SoundCloud link">
+          </div>
+          <div class="form-group">
+            <label for="inputMessage">Message:</label>
+            <textarea class="form-control" id="inputMessage" rows="3" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  <!-- END POP UP-->
+   </div>
+<!-- START FORM -->
+    <section class= "form" id="form">
+      <form action="" method="post" class="styled-form">
+        <table>
+         <h1 class="h1_form">Join Us</h1>
+          <tr>
+            <td><label for="nome">Name:</label></td>
+            <td><input type="text" id="nome" name="nome" required></td>
+          </tr>
+          <tr>
+            <td><label for="eta">Age:</label></td>
+            <td><input type="number" id="eta" name="eta" required></td>
+          </tr>
+          <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" id="email" name="email" required></td>
+          </tr>
+          <tr>
+            <td><label for="messaggio">Message:</label></td>
+            <td><textarea id="messaggio" name="messaggio" rows="4" cols="50" required></textarea></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align:center;"><button type="submit">Submit</button></td>
+          </tr>
+        </table>
+      </form>
+     </section>
+     <!--END FORM-->
+     
+   <section class="fav-artist">
+      <h3 class="sub-title" id="events">EVENTS</h3>
+      <div class="box-container">
+         <i class="fa-sharp fa-solid fa-circle-chevron-left arrow"></i>
+         <div class="box">
+            <img class="events" src="./img/kappa.jpeg" alt="img">
+            <h3>Kappa Future Festival</h3>
+          </div>
+         <div class="box">
+            <img class="events" src="./img/sonar.png" alt="img">
+            <h3>Sonar</h3>
+          </div>
+         <div class="box">
+            <img class="events" src="./img/timewarp.jpeg" alt="img">
+            <h3>Time Warp</h3>
+          </div>
+         <div class="box">
+            <img class="events" src="./img/decibel.jpeg" alt="img">
+            <h3>Decibel</h3>
+          </div>
+         <div class="box">
+            <img class="events" src="./img/sunwaves.jpeg" alt="img">
+            <h3>SunWaves</h3>
+          </div>
+         <div class="box">
+         <img  class="events" src="./img/awakenings.jpeg" alt="img">
+         <h3>Awakenings</h3>
+      </div>
+      <i class="fa-sharp fa-solid fa-circle-chevron-right arrow"></i>
+      </div>
+     </section>
+     <!-- footer -->
+   <footer id="footer">
+      <img src="./icone/AFF_white.svg" alt="Logo" id="logo-footer" style="width: 110px;">
+      <div class="footer-contatti">
+          <p style="color:#fff"> CONTATTI </p>
+          <div class="footer-contatti-info">
+              <img src="./icone/maps.svg" alt="Logo">
+              <p>Via Libertà, 8 90129 Palermo (Italia)
+              </p>
+          </div>
+          <div class="footer-contatti-info">
+              <img src="./icone/telephone.svg" alt="Logo">
+              <p>+39 328 0344438
+              </p>
+          </div>
+          <div class="footer-contatti-info">
+              <img src="./icone/email.svg" alt="Logo">
+              <p>info@artistforfun.eu
+              </p>
+          </div>
+          <div class="footer-contatti-info">
+              <img src="./icone/wireless.svg" alt="Logo">
+              <p>41.9558589485,12.3242423</p>
+          </div>
+      </div>
+      <div class="social-icons">
+          <div class="icon-container">
+              <a href="https://www.facebook.com/" target="_blank"><img src="./icone/facebook.svg">
+              </div>
+              <div class="icon-container">
+                  <a href="https://www.instagram.com/" target="_blank"><img src="./icone/instagram.svg">
+                  </div>
+                  <div class="icon-container">            
+                      <a href="https://www.tiktok.com/" target="_blank" ><img src="./icone/tik-tok.svg"> 
+                      </a>
+                  </div>
+              </div>
+              <a href="#header-home" class="scroll-to-top"><img style="width: 30px; height: auto;" src="./icone/arrow.svg"></a>
+          </footer>
+           <!-- end footer -->
+</body>
+</html>

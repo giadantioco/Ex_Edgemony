@@ -1,0 +1,9 @@
+.button-flat {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--red);
+    color: var(--white);
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 40px;
+}

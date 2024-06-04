@@ -1,0 +1,64 @@
+/* HERO *************************** */
+.hero-coca-can {
+    display: none;
+}
+.hero-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.hero-background img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-container {
+    position: relative;
+    height: 100vh;
+    color: var(--white);
+    padding-top: 80px;
+    padding-bottom: 80px; 
+}
+
+.hero-logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero-content h3 {
+    padding-top: 30px;
+}
+
+.hero-content p {
+    padding-top: 30px;
+}
+
+@media (min-width: 1024px) {
+
+    .hero-logo {
+        display: none;
+    }
+
+    .hero-container {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .hero-coca-can {
+        display: block;
+        /* width: 50%; */
+        /* text-align: center; */
+        /* padding-right: 50px; */
+    }
+
+    .hero-content {
+        margin-top: 50px
+    }
+    
+}

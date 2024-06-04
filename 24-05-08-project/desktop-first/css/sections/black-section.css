@@ -1,0 +1,30 @@
+.black-section {
+    background: var(--black);
+    color: var(--white);
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+}
+.red-wave {
+    width: 100vw;
+    /* position: relative; */
+    /* top: 50vh; */
+    margin-top: -70vh;
+}
+.black-container {
+    text-align: center;
+}
+.black-container-title {
+    font-size: 65px;
+    font-weight: 300;
+}
+.black-container-subtext {
+    font-size: 20px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}

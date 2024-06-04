@@ -1,0 +1,80 @@
+/* SQUARES ************************** */
+
+/* squares */
+.squares {}
+
+.squares-cards {}
+
+.squares-item-image {
+    width: 100%;
+}
+
+.squares-item-image img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+.squares-item-content {
+    width: 100%;
+    display: block;
+    height: auto;
+    background-color: var(--red);
+}
+
+.squares-item-content h2 {
+    padding: 30px;
+}
+
+.squares-item-content p {
+    padding: 0 30px 30px;
+}
+
+/* ICONS *********************** */
+
+.square-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.last-square {
+    position: absolute;
+}
+
+.square-icons {
+    display: block;   
+}
+
+.square-icons img {
+    background-color: var(--black);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+@media (min-width: 1024px) {
+
+    .squares-cards {
+        display: flex;
+        width: 100%;
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+        text-align: center;
+    }
+    
+    /* .squares-item-image {
+        width: 50%;
+    }
+    
+    squares-item-content {
+        width: 50%;
+    } */
+
+    .squares-cards:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+
+    .last-square {
+    position: relative;
+}
+}

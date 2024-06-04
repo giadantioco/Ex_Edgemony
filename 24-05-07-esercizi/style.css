@@ -1,0 +1,232 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* es. 1 */
+
+.header {
+    background-color: rgb(142, 219, 10);
+}
+.header:hover {
+    background-color: white;
+}
+.header h1 {
+    background-color: palevioletred;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+}
+.header h2 {
+    background-color: black;
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+}
+.header h3 {
+    background-color: yellow;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+}
+.header p {
+    line-height: 50px;
+    font-weight: 300;
+    font-size: 20px;
+}
+.header ul li {
+    list-style-type: none;
+}
+.header a{
+    text-decoration: none;
+    font-size: 200px;
+}
+.header a:visited {
+    color: gray;
+}
+
+/*  es. 2 */
+
+.square {
+    border: 10px solid red;
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+/* es.3 + es.6 flex */
+
+.elements {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px;
+}
+.elements div {
+    width: 200px;
+    height: 200px;
+}
+.el-1 {
+    background: blue;
+    box-shadow: 5px 10px;
+}
+.el-2 {
+    background: green;
+    box-shadow: 5px 8px yellow;
+}
+.el-3 {
+    background: red;
+    box-shadow: 20px 20px 10px grey;
+}
+.el-1:hover {
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+    color: white;
+    background-color: black;
+}
+
+/* es. 5 */
+
+.rectangle {
+    border: 1px solid black;
+    margin: 30px 0;
+    /* width: 50%;
+    height: 90px; */
+    /* width: 100%;
+    height: 50px; */
+    width: 80%;
+    height: 200px;
+}
+
+/* es. 6 */
+
+.flex {
+    display: flex;
+    
+}
+.flex div {
+    border: 2px dotted gray;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+}
+/* es. 4 */
+@media only screen and (max-width: 768px) {
+
+    .header {
+        background-color: rgb(79, 83, 71);
+    }
+    .header:hover {
+        background-color: blue;
+    }
+    .header h1 {
+        background-color: pink;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        font-size: 30px;
+    }
+    .header h2 {
+        background-color: black;
+        color: red;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+    }
+    .header h3 {
+        background-color: yellow;
+        color: black;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 800;
+        font-size: 40px;
+    }
+    .header p {
+        line-height: 20px;
+        font-weight: 200;
+        font-size: 10px;
+    }
+    .header a{
+        text-decoration: none;
+        font-size: 50px;
+    }
+    .header a:visited {
+        color: brown;
+    }
+    .square {
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    .square:hover {
+        cursor: pointer;
+        transition: color 0.5s ease-in-out;
+        transition: background 0.5s ease-in-out;
+        color: white;
+        background-color: black;
+    }    
+    .elements {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px;
+    }
+    .elements div {
+        width: 100px;
+        height: 100px;
+    }
+    .el-1 {
+        background: blue;
+        box-shadow: 5px 10px;
+    }
+    .el-2 {
+        background: green;
+        box-shadow: 5px 8px yellow;
+    }
+    .el-3 {
+        background: red;
+        box-shadow: 20px 20px 10px grey;
+    }
+    .el-1:hover {
+        cursor: pointer;
+        transition: color 0.5s ease-in-out;
+        transition: background 0.5s ease-in-out;
+        color: white;
+        background-color: black;
+    }
+    .rectangle {
+        border: 1px solid black;
+        margin: 30px 0;
+        /* width: 50%;
+        height: 90px; */
+        /* width: 100%;
+        height: 50px; */
+        width: 40%;
+        height: 100px;
+    }
+    
+    /* es. 6 */
+    
+    .flex {
+        display: flex;
+    }
+    .flex div {
+        border: 2px dotted gray;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        align-content: center;
+    }
+  }
+
+  /* 
+  La cosa che non mi è chiara è l'approccio desktop, se ho creato la media query con approccio mobile, l'approccio desktop non è quello di default? 
+  Se aggiungo la media query 
+  @media only screen and (max-width: 1023px) 
+  non cambia nulla  
+  */

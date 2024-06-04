@@ -1,0 +1,13 @@
+@import url('./css/reset.css');
+@import url('./css/variables.css');
+@import url('./css/typography.css');
+@import url('/css/layout.css');
+
+/* components */
+@import url('./css/components/buttons.css');
+
+/* sections */
+@import url('./css/sections/hero.css');
+@import url('./css/sections/get-started.css');
+@import url('/css/sections/squares.css');
+@import url('./css/sections/footer.css');

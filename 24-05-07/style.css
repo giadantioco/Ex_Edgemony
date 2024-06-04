@@ -1,0 +1,141 @@
+/* Ho cercato di integrare gli esercizi di oggi all'interno della pagina che ho creato ieri per cercare di migliorarla */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: poppins, sans-serif;
+    color: #E6E6E6;
+    background-color: #121212;
+}
+.head {
+    width: 100em;
+    min-height: 90vh;
+    display: flex;
+    margin: 0 auto;
+}
+.head-1 {
+    width: 50em;
+    background-color: black;
+}
+.head-2 {
+    width: 50em;
+    background-image: url("./img/main.webp");
+    background-size: cover;
+    background-size: 400px;
+}
+.head-1 h1 {
+    font-size: 70px;
+    margin: 60px;
+    line-height: 110%;
+}
+.head-1 button {
+    font-size: 25px;
+    margin: 0 60px;
+    padding: 20px 40px;
+    border-radius: 100px;
+    text-transform: capitalize;
+    transition: all .2s ease-in-out; 
+}
+.head-1 button:hover {
+    background-color: #121212;
+    color: #E6E6E6;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+main {
+    margin: 60px auto;
+    max-width: 800px;
+    width: 100%;
+    min-height: 90vh;
+    padding: 20px;
+    background-color: #121212;
+}
+.box-1 h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.box-1 p {
+    font-size: 20px;
+}
+.box-2 {
+    margin-top: 70px;
+}
+.box-2 h3 {
+    font-size: 30px;
+}
+.box-2 li {
+    margin-top: 20px;
+    font-size: 25px;
+    list-style-type: none;
+    line-height: 50px;
+}
+.cards {
+    padding: 40px 0;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+}
+article img {
+    border-radius: 20px;
+} 
+article {
+    margin: 20px;
+    border-radius: 20px;
+    transition: transform .2s
+}
+article:hover {
+    transform: scale(1.1)
+}
+.form {
+    min-height: 50vh;
+    margin: 50px auto;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background-color: #121212;
+    text-align: center;
+}
+form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.submit {
+    padding: 10px;
+}
+.submit:hover {
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+    color: white;
+    background-color: black;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* body {
+      background-color: blue;
+    }
+    .head {
+        width: 100em;
+    }
+    .head-1 {
+        padding: 30px;
+    }
+     */
+     header {
+        display: none;
+     }
+     .media-head-2 {
+        display: none;
+    }
+    .media-head, .media-head-1, .media-head-2, .media-box-1, .media-box-2, .media-cards, .media-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+  }
+  
+  /* da rivedere codice media queries */

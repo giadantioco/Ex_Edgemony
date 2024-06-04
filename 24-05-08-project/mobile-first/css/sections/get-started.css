@@ -1,0 +1,34 @@
+/* GET STARTED ********************** */
+
+.get-started {
+    background-color: var(--black);
+    height: 80vh;
+}
+.get-started-intro h2 {
+    padding-top: 60px;
+}
+
+.get-started-intro h3 {
+    padding-top: 30px;
+}
+
+@media (min-width: 1024px) { 
+
+    .get-started-intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+    }
+
+    .get-started-intro h2 {
+        font-family: "Poiret One";
+        font-weight: 200;
+        font-size: 80px;
+        padding-top: 90px;
+    }
+
+    .get-started-intro a {
+        margin-top: 50px;
+    }
+}

@@ -1,0 +1,16 @@
+.black-wave {
+    width: 100vw;
+    /* position: relative; */
+    /* top: 50vh; */
+    margin-top: -38vh;
+}
+
+.icons {
+    background-color: var(--black);
+    color: var(--white);
+    margin-top: -15px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
