@@ -10,25 +10,41 @@ btnStartEl.textContent = 'Start'
 btnStopEl.classList.add('btn-stop')
 btnStopEl.textContent = 'Stop'
 
-// const currentDate = new Date()
+// Full function to format date HH:MM:SS and add 0 infront of numbers >10
 
-// const hour = currentDate.getHours()
-// const minute = currentDate.getMinutes()
-// const second = currentDate.getSeconds()
+function checkTime(i) {
+    if(i < 10) {
+        i = '0' + i
+    }
+    return i
+}
 
-// const formatter = ????????? 
+// function startTime() {
+
+//     const currentDate = new Date()
+
+//     const hour = currentDate.getHours()
+//     const minute = currentDate.getMinutes()
+//     const second = currentDate.getSeconds()
+//     // add the 0 infront of numbers >10
+//     minute = checkTime(minute)
+//     second = checkTime(second)
+
+//     document.querySelector('.counter').textContent = `${hour} : ${minute} : ${second}`
+
+//     intervalId = setTimeout(() => {
+//         startTime()
+//     }, 1000)
+// }
+// startTime()
 
 
-const currentDate = new Date()
-const hour = currentDate.getHours().toString()
-console.log(hour)
-pEl.textContent = hour
 
 
-// pEl.textContent = new Date()
-// const formatter = new Intl.DateTimeFormat({ huor: '2-digit', minute: '2-digit', second: '2-digit'})
-// const formattedTime = formatter.format(pEl)
-// console.log(formattedTime)
+const newDate = new Date()
+const formattedNewTime = newDate.toLocaleTimeString()
+pEl.textContent = formattedNewTime
+console.log(formattedNewTime)
 
 
 divEl.append(pEl, btnStartEl, btnStopEl)
@@ -43,7 +59,8 @@ const intervalStart = () => {
 
     const startIntervalId = setInterval(() => {
     // intervalNumber = intervalNumber + 1;
-    const printSec = pEl.textContent = new Date()
+    const printSec = pEl.textContent = new Date().toLocaleTimeString()
+    // printSec.toLocaleTimeString()
     console.log(printSec)
     
     }, 1000)
