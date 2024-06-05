@@ -1,0 +1,18 @@
+button {
+    margin: 10px auto;
+    padding: 8px 15px;
+    /* display: inline-block; */
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    opacity: 1;
+    transition: 1s;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    opacity: 1;
+}
