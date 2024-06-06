@@ -134,6 +134,7 @@ modalEl.addEventListener('click', (e) => {
         } 
 
         interval = setTimeout(()=> {
+            
             number = ++number;
             console.log(number)
             modalEl.classList.add('modal-hidden')
