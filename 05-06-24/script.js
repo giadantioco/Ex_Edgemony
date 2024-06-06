@@ -81,10 +81,11 @@ function globalFunction(e) {
     console.log('questa è una funzione globale', this)
     // console.log(`questo è l'event target`, e.target)
 }
-globalFunction()
+
 
 eventTargetBtnEl.addEventListener('click', e => {
     console.log(e.target)
+    globalFunction()
 })
 
 // MODALE 

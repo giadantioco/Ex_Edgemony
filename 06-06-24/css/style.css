@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* background: rgb(80, 73, 141); */
+    background: linear-gradient(
+      90deg,
+      rgb(190, 93, 93) 0%,
+      rgb(219, 180, 180) 53%
+    );
+  }
+  
+  /* LAYOUT */
+  body {
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 90vh;
+  }
+
+  button {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  
+  /* HEADER */
+  h1 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* LOAD BTN */
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .load-btn {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .1s;
+  }
+  /* MAIN */
+  /* Card List */
+  .container {
+    margin: 0 auto;
+    /* background-color: pink; */
+    border-radius: 20px;
+    width: 800px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  /* .container-hidden {
+    display: none;
+  } */
+
+/* Card */
+  .product-card {
+    background-color: rgba(235, 138, 138, 0.687);
+    width: 200px;
+    height: 550px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    flex-direction: column;
+  }
+
+  .card-title {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px;
+
+  }
+
+  .product-card > img {
+    margin: 0 auto;
+    width: 180px;
+    padding: 20px;
+    background-color: white;
+    /* border: 5px solid red; */
+    display: flex;
+  }
+
+  .buy-btn {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .1s;
+  }
+
+  buy-btn:hover {
+    transform: scale(1.5);
+  }
