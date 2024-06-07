@@ -4,7 +4,7 @@ const containerEl = document.querySelector('.container')
 const btnContainer = document.querySelector('.btn-container')
 const loadBtn = document.querySelector("load-btn")
 
-
+// aggiungo un bottone
 btnContainer.addEventListener('click', () => {
 fetch('https://fakestoreapi.com/products')
 .then((response) =>  response.json())

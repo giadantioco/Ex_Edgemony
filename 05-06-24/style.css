@@ -24,7 +24,7 @@
     border-radius: 10px;
     background-color: black;
     color: white;
-    box-shadow: 10px 5px 5px rgb(249, 246, 246);
+    box-shadow: 0 0 4px rgba(249, 246, 246, 0.537);
     transition: 1s;
 }
 

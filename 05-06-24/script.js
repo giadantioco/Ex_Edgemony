@@ -117,7 +117,7 @@ const openModal = () => {
 openModalBtnEl.addEventListener('click', openModal)
 
 // Es. 4
-let number = 0;
+let number = 5;
 let interval;
 
 modalEl.addEventListener('click', (e) => {
@@ -136,7 +136,7 @@ modalEl.addEventListener('click', (e) => {
 
         interval = setTimeout(()=> {
             
-            number = ++number;
+            number = --number;
             console.log(number)
             modalEl.classList.add('modal-hidden')
         }, 5000) 
