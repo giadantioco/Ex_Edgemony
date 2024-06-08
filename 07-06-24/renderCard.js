@@ -42,7 +42,7 @@ export const renderCard = (titleCard, image, container) => {
       // console.log(product)
         renderCard(
           product.title, 
-          `https://image.tmdb.org/t/p/w500${product.poster_path}`, 
+          `https://image.tmdb.org/t/p/original${product.poster_path}`, 
           // product -> argomento passato
           // poster_path
           container

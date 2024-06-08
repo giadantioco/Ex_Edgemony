@@ -10,6 +10,7 @@ const buttonPopular = document.querySelector('.most-popular')
 const buttonTopRated = document.querySelector('.top-rated')
 const btnContainer = document.querySelector('.btn-container')
 
+
 // Object options richiesto dall'API Moviedb affinchè la nostra chiamata sia autorizzata.
 const options = {
     headers: {
@@ -36,7 +37,7 @@ fetch("https://api.themoviedb.org/3/movie/popular?page=2", options)
     const movies = data.results
     // console.log(movies)
 
-    // renderizziamo la lista di prodotti
+    // renderizziamo la lista di movies
     renderList(movies, containerEl);
     // console.log(renderList)
 
@@ -89,7 +90,7 @@ buttonPageTwo.addEventListener( "click", () => {
     
     const movies = data.results
 
-    // renderizziamo la lista di prodotti
+    // renderizziamo la lista di movies
     renderList(movies, containerEl);
 
     searchBarEl.addEventListener("input", (event) => {
@@ -156,7 +157,7 @@ btnContainer.addEventListener('click', (e) => {
       }
       else {
         // stampa i film top_rated
-        fetch("https://api.themoviedb.org/3/movie/top_rated", options) 
+        fetch("https://api.themoviedb.org/3/movie-top-rated-list", options) 
        
     
       // then - attesa della chiamata fetch
@@ -166,7 +167,7 @@ btnContainer.addEventListener('click', (e) => {
         
         const movies = data.results
     
-        // renderizziamo la lista di prodotti
+        // renderizziamo la lista di movies
         renderList(movies, containerEl);
     
         searchBarEl.addEventListener("input", (event) => {

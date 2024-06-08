@@ -1,0 +1,26 @@
+.container {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .product-card {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 360px;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.355);
+    padding: 10px;
+    border-radius: 4px;
+    transition: all .2s ease-in-out;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
