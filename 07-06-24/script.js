@@ -120,7 +120,7 @@ buttonPageTwo.addEventListener( "click", () => {
 if(btnContainer) {
 
 btnContainer.addEventListener('click', (e) => {
-    const eventTarget = e.target; // mi sono resa conto dopo che ho creato i bottoni sull'html, quindi l'event target non mi serve inquesto case :)
+    // const categoryClass = e.target.class; 
 
     if(buttonPopular) {
 
@@ -191,3 +191,10 @@ btnContainer.addEventListener('click', (e) => {
 } else {
     console.log('bottone non trovato')
 }
+
+
+
+// Esercizio 1: Basandoci sulla lezione del giorno, convertiamo i nostri fetch/then con una funzione Async/Await riutilizzabile per più endpoint
+// Esercizio 2: Implementiamo la paginazione per chi non l'ha già fatto, in modo dinamico + cambio tipo di dati "serie tv o movie"
+// Esercizio 3 (Opzionale): e se provassimo a filtrare per genre? stampata la lista di generi ci sono degli id, forse dobbiamo farlo con quello? o forse c'è un endpoint specifico? :redfish: :canna_da_pesca_e_pesce:
+// Buon divertimento e al solito, il punto 3 lo rivedremo a lezione insieme
