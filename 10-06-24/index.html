@@ -7,19 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>moviedb</h1>
-    <!-- <div class="btn-container">
-        <button class="load-btn">LOAD</button>
-    </div>  -->
-    <div class="input-container">
-        <button class="page2">pagina 2</button>
-        <input class="searchbar" type="text" placeholder="search"/>
+    <!-- START HEADER -->
+    <header>
+        <h1>moviedb</h1>
+        <input type="text" id="searchbar">
+        <div class="dataTypeBtn-container">
+            <button class="movies" id="movie">movies</button>
+            <button class="series" id="tv">series</button>
+        </div>  
+    </header>
+    <!-- END HEADER -->
+    <div class="genres-container"></div>
+    <div class="container">
+    <!-- CARDS CONTAINER -->
     </div>
-    <div class="btn-container">
-        <button class="most-popular" id="most-popular">most popular</button>
-        <button class="top-rated" id="top_rated">top rated</button>
+    <!-- FOOTER START -->
+    <div class="pagesBtn-container">
+        <button class="prev-page" id="prev-page"><</button>
+        <button class="next-page" id="next-page">></button>
     </div>  
-    <div class="container"></div>
+    <!-- FOOTER END -->
+    <!-- <script>
+        const endpoint = 'popular'
+    </script> -->
     <script type="module" src="script.js"></script>
 </body>
 </html>

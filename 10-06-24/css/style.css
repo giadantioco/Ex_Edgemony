@@ -1,7 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-  font-family: 'Roboto Slab';
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: rgb(241, 69, 38);
+}
+
+/* header */
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dataTypeBtn-container{
+  margin: 20px;
+}
+
+/* footer */
+
+.pagesBtn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* cards */
@@ -9,12 +34,14 @@
 .container {
   margin: 20px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .product-card {
   flex: 0 0 auto;
+  background-color: white;
   width: 200px;
   height: auto;
   overflow: hidden;
@@ -22,6 +49,8 @@
   padding: 10px;
   border-radius: 4px;
   transition: all .2s ease-in-out;
+  font-weight: 500;
+  text-align: center;
 }
 
 img {
@@ -30,5 +59,19 @@ img {
 
 .product-card:hover {
   transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* genres */
+
+.genres-container > ul {
+  display: flex;
+  list-style-type: none;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.genres-container > ul > li:hover {
+  transform: scale(1.05);
   cursor: pointer;
 }

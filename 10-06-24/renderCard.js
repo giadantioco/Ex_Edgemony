@@ -15,7 +15,7 @@ export const renderCard = (titleCard, image, container) => {
       return titleCard
   }
 
-  // funzione di renderList, pulisce il container e renderizza un array di cards
+  // funzione di renderCard, pulisce il container e renderizza un array di cards
   export const renderList = (dataList, container) => {
     container.innerHTML = "";
 
