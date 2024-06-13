@@ -84,7 +84,7 @@ const POST = async (product) => {
     return data.id
 }
 
-getById()
+getById(275)
 
 // console.log(await POST())
 
