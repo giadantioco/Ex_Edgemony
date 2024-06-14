@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        margin: 0;
+        padding: 0;
+        color: red;
+      }
+
+      .check-id {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input
+        class="check-id"
+        type="text"
+        placeholder="select id"
+        required
+      /><button class="check-id-button">Check</button>
+    </form>
+    <form
+      onsubmit="return false"
+      style="display: flex; flex-direction: column; max-width: 300px; gap: 4px"
+    >
+      <input  class="title" type="text" placeholder="title" required />
+      <p class="title-error"></p>
+      <input class="price" type="number" placeholder="price" required />
+      <p class="price-error"></p>
+      <input class="description" type="text" placeholder="description" required />
+      <p class="description-error"></p>
+      <input class="category-id" type="number" placeholder="category id" required />
+      <p class="category-error"></p>
+      <input class="images" type="text" placeholder="images" required />
+      <p class="images-error"></p>
+      <button  class="button-send">send</button>
+    </form>
+    <div class="main-container"></div>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
