@@ -40,33 +40,36 @@ footer {
 @media screen and (min-width: 768px) {
   #app > .left,
   #app > .right {
-    width: 50%;
+    width: 35%;
     background-color: yellow;
   }
-
-  main,
-  aside,
-  section {
-    min-height: 60vh;
-  }
-}
-
-/* desktop */
-@media screen and (min-width: 1024px) {
-  #app > header {
-    order: -2;
-  }
-
-  #app > .left {
-    order: -1;
-  }
-
   #app > .main {
-    width: 50%;
+    width: 30%;
   }
 
-  #app > .right,
-  #app > .left {
-    width: 25%;
+  /* desktop */
+  @media screen and (min-width: 1024px) {
+    #app > header {
+      order: -2;
+    }
+
+    #app > .left {
+      order: -1;
+    }
+
+    #app > .main {
+      width: 50%;
+    }
+
+    #app > .right,
+    #app > .left {
+      width: 25%;
+    }
+
+    main,
+    aside,
+    section {
+      min-height: 60vh;
+    }
   }
 }
