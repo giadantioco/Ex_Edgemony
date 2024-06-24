@@ -155,9 +155,9 @@ btnContainer.addEventListener('click', (e) => {
         containerEl.append(title);
         })
       }
-      else {
+      else if (buttonTopRated) {
         // stampa i film top_rated
-        fetch("https://api.themoviedb.org/3/movie-top-rated-list", options) 
+        fetch("https://api.themoviedb.org/3/movie/top_rated", options) 
        
     
       // then - attesa della chiamata fetch

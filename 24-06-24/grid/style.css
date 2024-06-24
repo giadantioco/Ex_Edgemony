@@ -1,0 +1,72 @@
+/* nominate grid areas */
+#app {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "left"
+    "right"
+    "footer";
+}
+
+/*  column padding  */
+#app > * {
+  padding: 1rem;
+}
+
+/* assigning colums to areas of grid */
+#app > header {
+  grid-area: header;
+  background-color: aqua;
+}
+#app > .main {
+  grid-area: main;
+  background-color: yellowgreen;
+}
+#app > .left {
+  grid-area: left;
+  background-color: red;
+}
+#app > .right {
+  grid-area: right;
+  background-color: green;
+}
+#app > footer {
+  grid-area: footer;
+  background-color: magenta;
+}
+
+/* responsive tablet */
+@media (min-width: 768px) {
+  #app {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "main main"
+      "left right"
+      "footer footer";
+  }
+
+  .main,
+  .left,
+  .rigth {
+    min-height: 50dvh;
+  }
+}
+
+/* responsive desktop */
+@media (min-width: 1024px) {
+  #app {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "header header header header"
+      "left main main right"
+      "footer footer footer footer";
+  }
+
+  .main,
+  .left,
+  .rigth {
+    min-height: 50dvh;
+  }
+}

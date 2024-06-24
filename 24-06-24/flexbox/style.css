@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* select all elements of #app, not just direct children */
+/* #app * {
+  width: 100%;
+  padding: 1rem;
+} */
+
+/* mobile first */
+#app > * {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* backgroud colors (added class jo app in JS)*/
+header {
+  background-color: turquoise;
+}
+main {
+  background-color: red;
+}
+section {
+  background-color: greenyellow;
+}
+aside {
+  background-color: yellow;
+}
+footer {
+  background-color: magenta;
+}
+
+/* tablet */
+@media screen and (min-width: 768px) {
+  #app > .left,
+  #app > .right {
+    width: 50%;
+    background-color: yellow;
+  }
+
+  main,
+  aside,
+  section {
+    min-height: 60vh;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 1024px) {
+  #app > header {
+    order: -2;
+  }
+
+  #app > .left {
+    order: -1;
+  }
+
+  #app > .main {
+    width: 50%;
+  }
+
+  #app > .right,
+  #app > .left {
+    width: 25%;
+  }
+}
