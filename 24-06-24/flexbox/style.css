@@ -27,7 +27,7 @@ main {
   background-color: red;
 }
 section {
-  background-color: greenyellow;
+  background-color: orange;
 }
 aside {
   background-color: yellow;
@@ -40,11 +40,10 @@ footer {
 @media screen and (min-width: 768px) {
   #app > .left,
   #app > .right {
-    width: 35%;
-    background-color: yellow;
+    width: 50%;
   }
   #app > .main {
-    width: 30%;
+    width: 100%;
   }
 
   /* desktop */
