@@ -1,6 +1,6 @@
-function getMainHTML() {
+async function getMainHTML() {
   const menuHTML = getMenuHTML();
-  const articlesHTML = getArticlesHTML();
+  const articlesHTML = await getArticlesHTML();
 
   return `
         <section class="left">${menuHTML}</section>
