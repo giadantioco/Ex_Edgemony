@@ -1,0 +1,17 @@
+.aside-container {
+  grid-area: aside;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.aside-container .list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main {
+  grid-area: main;
+  background-color: #e9f478;
+}

@@ -1,0 +1,11 @@
+footer {
+  grid-area: footer;
+  background-color: #d0c6e2;
+  padding: 20px;
+}
+
+.footer .list {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+}
