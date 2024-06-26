@@ -1,5 +1,8 @@
 import "./main.css";
 
+import posts from "../../../data.json";
+
+// functions for main menu
 function Main() {
   return (
     <main className="main">
@@ -10,34 +13,16 @@ function Main() {
 }
 
 function MainMenu() {
-  const items = [
-    {
-      userId: 1,
-      id: 1,
-      title:
-        "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-    },
-    {
-      userId: 1,
-      id: 2,
-      title: "qui est esse",
-      body: "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
-    },
-    {
-      userId: 1,
-      id: 3,
-      title: "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-      body: "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut",
-    },
-  ];
+  const items = posts.slice(0, 8);
+
   return (
     <section className="list-items">
-      {items.map((item) => (
+      {items.map((post, index) => (
         <MainMenuItem
-          userId={item.userId}
-          title={item.title}
-          body={item.body}
+          key={index}
+          userId={post.userId}
+          title={post.title}
+          body={post.body}
         />
       ))}
     </section>
@@ -54,43 +39,36 @@ function MainMenuItem({ userId, title, body }) {
   );
 }
 
+// functions for aside menu
 function Aside() {
+  const menuItems = [
+    { label: "dashboard", id: "dashboard-link" },
+    { label: "search", id: "search-link" },
+    { label: "insights", id: "insights-link" },
+    { label: "docs", id: "docs-link" },
+    { label: "products", id: "products-link" },
+    { label: "setting", id: "setting-link" },
+    { label: "messages", id: "messages-link" },
+  ];
+
   return (
     <aside className="aside-container">
-      <Menu />
+      <Menu items={menuItems} />
     </aside>
   );
 }
 
-//   function Menu() {
-//     const menuItems = [
-//       { label: "dashboard" },
-//       { label: "search" },
-//       { label: "insights" },
-//       { label: "docs" },
-//       { label: "products" },
-//       { label: "setting" },
-//       { label: "messages" },
-//     ]
-// }
-
-function Menu() {
+function Menu(props) {
+  const { items } = props;
   return (
     <ul className="list">
-      <MenuItem label={"dashboard"} />
-      <MenuItem label={"search"} />
-      <MenuItem label={"insights"} />
-      <MenuItem label={"docs"} />
-      <MenuItem label={"products"} />
-      <MenuItem label={"setting"} />
-      <MenuItem label={"messages"} />
+      {items.map((item, index) => (
+        <li key={index} id={item.id}>
+          {item.label}
+        </li>
+      ))}
     </ul>
   );
-}
-
-function MenuItem(props) {
-  const { label, id = "default" } = props;
-  return <li id={id}>{label}</li>;
 }
 
 export { Main, Aside };
