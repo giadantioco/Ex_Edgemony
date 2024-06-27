@@ -13,7 +13,7 @@ function Main() {
 }
 
 function MainMenu() {
-  const items = posts.slice(0, 8);
+  const items = posts.slice(0, 10);
 
   return (
     <section className="list-items">
@@ -59,7 +59,7 @@ function Aside() {
 }
 
 function Menu(props) {
-  const { items } = props;
+  const { items } = propss;
   return (
     <ul className="list">
       {items.map((item, index) => (
