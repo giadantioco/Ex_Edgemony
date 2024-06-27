@@ -13,7 +13,7 @@ function App() {
     <Fragment>
       <Header>Logo</Header>
       <Aside />
-      <Main />
+      <Main posts={posts} />
       <Footer />
     </Fragment>
   );

@@ -1,0 +1,32 @@
+.button {
+  width: 100px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #d0d0d0;
+}
+
+.operator {
+  background-color: #f9a825;
+  color: #fff;
+}
+
+.operator:hover {
+  background-color: #f57f17;
+}
+
+.reset {
+  background-color: #6e50a0;
+  color: #fff;
+}
+
+.reset:hover {
+  background-color: #2e0e63;
+}
