@@ -1,0 +1,22 @@
+/* App.css */
+body {
+  font-family: poppins, sans-serif;
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+h1 {
+  color: #333;
+}

@@ -1,0 +1,10 @@
+/* randomBtn.css */
+.random-btn {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.random-btn button:hover {
+  background-color: #218838;
+}
