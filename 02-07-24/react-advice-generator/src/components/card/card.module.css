@@ -45,6 +45,12 @@
   right: 50%;
   transform: translateX(50%);
   cursor: pointer;
+  box-shadow: 0 0 10px var(--Neon-Green);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px 5px var(--Neon-Green);
 }
 
 @media (max-width: 768px) {
