@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![IL MIO PROGETTO](./screenshot.png)
+![IL MIO PROGETTO](./Screenshot.png)
 
 ## My process
 
