@@ -59,7 +59,7 @@ function Aside() {
 }
 
 function Menu(props) {
-  const { items } = propss;
+  const { items } = props;
   return (
     <ul className="list">
       {items.map((item, index) => (

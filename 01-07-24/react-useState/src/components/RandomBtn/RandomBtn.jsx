@@ -10,8 +10,8 @@ function RandomBtn() {
   };
 
   return (
-    <div>
-      <button className="random-btn" id="randomBtn" onClick={handleRandomBtn}>
+    <div className="random-btn">
+      <button id="randomBtn" onClick={handleRandomBtn}>
         {randomNum}
       </button>
     </div>

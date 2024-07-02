@@ -21,11 +21,11 @@ Esercizi:
 // <---- Definiamo variabile che contiene una stringa ---->
 // usiamo doppi apicie salviamo stringa : Ciao Mondo!
 const doubleString = "Ciao Mondo!";
-console.log(doubleString)
+console.log(doubleString);
 
 // usiamo singoli apici e salviamo la stringa : Mio zio viene dalla citta dell'acquila
-const string = 'Mio zio viene dalla città dell\'Acquila';
-console.log(string)
+const string = "Mio zio viene dalla città dell'Acquila";
+console.log(string);
 
 // usiamo il backtick per concatenare le due stringhe precedenti dentro una nuova, usando anche l'andata a capo
 const stringConcat = `${doubleString}.
@@ -37,7 +37,7 @@ console.log(stringConcat);
 const newString = doubleString.toUpperCase();
 console.log(newString);
 
-const newString2= string;
+const newString2 = string;
 console.log(newString2.toUpperCase());
 
 // <---- Definiamo una variabile e salviamo all'interno un dato passato dall'utente prompt() ---->
@@ -60,10 +60,9 @@ const userInputNumber = Number(userInput);
 console.log(userInputNumber);
 console.log(typeof userInputNumber);
 
-let num = userInputNumber; 
+let num = userInputNumber;
 if (num > 7) {
-    console.log(`Number ${num} is bigger than seven, you Win!`)
+  prompt(`Number ${num} is bigger than seven, you Win!`);
 } else {
-    console.log(`Sorry, number ${num} is smaller than seven! You lose`)
+  prompt(`Sorry, number ${num} is smaller than seven! You lose`);
 }
-

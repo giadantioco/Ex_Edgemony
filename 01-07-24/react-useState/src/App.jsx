@@ -15,22 +15,6 @@ function App() {
         <RandomBtn />
         <br />
         <Counter />
-        <h1>CB10</h1>
-        <button onClick={handleClick}>Ciao</button>
-        <button
-          onClick={function handleClick() {
-            console.log("clicked");
-          }}
-        >
-          CLick me!
-        </button>
-        <button
-          onClick={() => {
-            console.log("clicked");
-          }}
-        >
-          CLick me2!
-        </button>
       </div>
     </>
   );
