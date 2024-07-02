@@ -11,6 +11,7 @@ function Card() {
   const getRandomAdvice = () => {
     const randomIndex = Math.floor(Math.random() * advices.length); // advices.length takes array length
 
+    // return random index of advices array
     return advices[randomIndex];
   };
   // destructuring after, to use getRandomValue as default state
