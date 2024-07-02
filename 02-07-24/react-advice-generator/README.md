@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![IL MIO PROGETTO](./screenshot.jpg)
+![IL MIO PROGETTO](./screenshot.png)
 
 ## My process
 
@@ -43,7 +43,7 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 
 ## Author
 
-[Giada Antioco]
+Giada Antioco
 
 # React + Vite
 
