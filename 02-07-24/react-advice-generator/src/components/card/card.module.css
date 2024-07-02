@@ -1,5 +1,6 @@
 .card {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 350px;
   background-color: var(--Dark-Grayish-Blue);
   border-radius: 10px;
@@ -7,6 +8,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 20px;
   position: relative;
 }
 
@@ -24,7 +26,9 @@
 }
 
 .img {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
+  /* height: auto; */
 }
 
 .btn {
@@ -38,5 +42,28 @@
   position: absolute;
   /* bottom: 250px; */
   bottom: -30px;
+  right: 50%;
+  transform: translateX(50%);
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .advice {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .btn {
+    width: 50px;
+    height: 50px;
+    bottom: -20px;
+  }
 }
