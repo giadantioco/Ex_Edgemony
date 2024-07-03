@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+/* colors variables */
+:root {
+  /* primary */
+  --Green200: hsl(148, 38%, 91%);
+  --Green600: hsl(169, 82%, 27%);
+  /* error */
+  --Red: hsl(0, 66%, 54%);
+  /* neutral */
+  --White: hsl(0, 0%, 100%);
+  --Grey500: hsl(186, 15%, 59%);
+  --Grey900: hsl(187, 24%, 22%);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Layout */
+/* body {
+    max-width: 1440px;
+  } */
+
+/* @media screen and (min-width: 375px) {
+      body {
+        min-width: 375px;
+      }
+    } */
+
+/* background color*/
+body {
+  background-color: var(--Green200);
+}
+
+/* center body */
+body {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

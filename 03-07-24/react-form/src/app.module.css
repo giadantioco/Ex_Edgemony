@@ -1,0 +1,52 @@
+/* main layout */
+.form {
+  background-color: var(--White);
+  border-radius: 15px;
+  width: 700px;
+  height: 600px;
+}
+
+/* title layout */
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* label {
+  border: 1px solid red;
+} */
+
+/* internal container layout */
+.container {
+  margin: 0 auto;
+  width: 600px;
+  /* height: 500px; */
+  padding: 20px;
+}
+
+/* subsections inside form, flex */
+.subcontainer,
+button {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* first subsection, flex */
+.subcontainer:first-of-type {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* name and surname containers  */
+.nameContainer,
+.surnameContainer {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
