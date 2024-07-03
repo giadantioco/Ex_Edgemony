@@ -41,27 +41,33 @@ function App() {
             <label for="email">Email Address *</label>
             <input type="text" name="email" onChange={(e) => handleChange(e)} />
           </div>
+          <div className={`${styles.subcontainer} ${styles.thirdContainer}`}>
+            <label for="query" className={styles.query}>
+              Query Type *
+            </label>
+            <div className={styles.radioContainerWrapper}>
+              <div className={styles.radioContainer}>
+                <input type="radio" /> General Enquiry
+              </div>
+              <div className={styles.radioContainer}>
+                <input type="radio" /> Support Request
+              </div>
+            </div>
+          </div>
           <div className={styles.subcontainer}>
-            <label for="query">Query Type *</label>
-            <div>
-              <input type="checkbox" /> General Enquiry
-            </div>
-            <div>
-              <input type="checkbox" /> Support Request
-            </div>
-            <div className={styles.subcontainer}>
-              <label for="message">Message *</label>
-              <textarea
-                name="textarea"
-                id="textarea"
-                cols="30"
-                rows="10"
-              ></textarea>
-            </div>
-            <div className={styles.subcontainer}>
-              <input type="checkbox" />{" "}
-              <p>I consent to being contacteed by the team *</p>
-            </div>
+            <label for="message">Message *</label>
+            <textarea
+              name="textarea"
+              id="textarea"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </div>
+          <div className={`${styles.subcontainer} ${styles.checkbox}`}>
+            <input type="checkbox" />
+            <p>I consent to being contacteed by the team *</p>
+          </div>
+          <div className={`${styles.subcontainer} ${styles.submit}`}>
             <button type="submit">Submit</button>
           </div>
         </div>
