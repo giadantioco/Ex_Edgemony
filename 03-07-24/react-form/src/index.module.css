@@ -16,7 +16,8 @@
 * {
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
+  color: var(--Grey900);
   margin: 0;
   padding: 0;
 }

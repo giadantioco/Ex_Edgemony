@@ -6,14 +6,22 @@ function App() {
     name: "",
     surname: "",
     email: "",
+    textarea: "",
   });
 
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
+    // const textarea = e.target.textarea;
 
-    setInput((prevState) => ({ prevState, [name]: value }));
+    setInput((prevState) => ({ ...prevState, [name]: value }));
   };
+
+  const inputName = input.name;
+  const inputSurname = input.surname;
+  const inputEmail = input.email;
+  const inputMessage = input.textarea;
+
   return (
     <>
       <form className={styles.form}>
@@ -57,7 +65,8 @@ function App() {
           <div className={styles.subcontainer}>
             <label for="message">Message *</label>
             <textarea
-              name="textarea"
+              onChange={(e) => handleChange(e)}
+              name="name"
               id="textarea"
               cols="30"
               rows="5"
@@ -67,14 +76,17 @@ function App() {
             <input type="checkbox" />
             <p>I consent to being contacteed by the team *</p>
           </div>
-          <div className={`${styles.subcontainer} ${styles.submit}`}>
+          <div className={styles.subcontainer}>
             <button type="submit">Submit</button>
           </div>
         </div>
       </form>
-      <p>{input.name}</p>
-      <p>{input.surname}</p>
-      <p>{input.email}</p>
+      <div className={styles.answers}>
+        <p>{`Name: ${inputName}`}</p>
+        <p>{`Surname: ${inputSurname}`}</p>
+        <p>{`Email: ${inputEmail}`}</p>
+        <p>{`Message: ${inputMessage}`}</p>
+      </div>
     </>
   );
 }

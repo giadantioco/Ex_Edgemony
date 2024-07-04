@@ -96,10 +96,36 @@ input {
 }
 
 /* submit */
-.submit {
-  border-radius: 5px;
-}
-
 button {
   text-align: center;
+  background-color: var(--Green600);
+  color: var(--White);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+  padding: 15px;
+  letter-spacing: 1px;
+}
+
+/* answers container */
+.answers {
+  background-color: var(--Green600);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  border-top-left-radius: 5px;
+}
+
+.answers > p {
+  color: var(--White);
+
+  font-size: 16px;
 }
