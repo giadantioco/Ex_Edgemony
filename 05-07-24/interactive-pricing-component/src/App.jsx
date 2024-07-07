@@ -18,12 +18,33 @@ function App() {
   // function to handle change of rangeinput
   const handleChange = (e) => {
     const index = e.target.value;
+    console.log(index);
     setRangeInput(index);
+  };
+
+  // state to handle toggle
+  const [toggle, setToggle] = useState(false); // type checkbox -> boolean
+  // function to handle toggle change
+  const handleToggleChange = (e) => {
+    console.log(e.target.value);
+    console.log("ciao");
+    console.log(toggle);
+    setToggle((prevToggle) => !prevToggle);
+  };
+
+  // states to get mouse coordinates
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+
+  // function to handle mouse move event and states
+  const handleMouseMove = (e) => {
+    setMouseX(e.clientX);
+    setMouseY(e.clientY);
   };
 
   return (
     <>
-      <div className={styles.mainContainer}>
+      <div className={styles.mainContainer} onMouseMove={handleMouseMove}>
         <header>
           <h1>Simple, traffic based pricing</h1>
           <h3>Sing-up for our 30-day trial. No credit card required.</h3>
@@ -32,12 +53,30 @@ function App() {
           <div className={styles.displayContainer}>
             <div className={styles.content}>
               <p>
-                <span>{pageViewsPricing[rangeInput].views}</span>
+                <span
+                  style={{
+                    fontWeight: "600",
+                    fontSize: "28px",
+                    paddingRight: "10px",
+                    color: "var(--lilla)",
+                  }}
+                >
+                  {pageViewsPricing[rangeInput].views}
+                </span>
                 PAGE VIEWS
               </p>
               <p>
-                <span>${pageViewsPricing[rangeInput].price}</span>
-                /month
+                <span
+                  style={{
+                    fontWeight: "600",
+                    fontSize: "56px",
+                    paddingRight: "10px",
+                    color: "var(--lilla)",
+                  }}
+                >
+                  ${pageViewsPricing[rangeInput].price.toFixed(2)}
+                </span>
+                /MONTH
               </p>
             </div>
             <div className={styles.content}>
@@ -54,8 +93,13 @@ function App() {
             <div className={classNames(styles.content, styles.switchContainer)}>
               <p>Monthly Billing</p>
               <label className={styles.switch}>
-                <input type="radio" />
-                <span className="slider round"></span>
+                <input
+                  type="checkbox"
+                  className={styles.togglesw}
+                  // value="monthly"
+                  checked={toggle}
+                  onChange={handleToggleChange}
+                />
               </label>
               <div className={styles.discount}>
                 <p>Yearly Billing</p>

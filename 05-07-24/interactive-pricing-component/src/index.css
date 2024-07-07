@@ -26,9 +26,19 @@
 /* layout */
 body {
   font-family: "Syne", sans-serif;
+  color: var(--white);
+  /* background-color: var(--lilla); */
   min-width: 1440px;
   min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* background animation */
+body {
+  background: url(./assets/bg_animation.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
