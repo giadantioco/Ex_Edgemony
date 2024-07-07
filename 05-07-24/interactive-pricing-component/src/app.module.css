@@ -44,7 +44,7 @@ h1 {
 .displayContainer {
   width: 624px;
   height: 323px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -53,7 +53,7 @@ h1 {
 
 /* contaier content ( * 3 ) */
 .content {
-  border: 1px dotted blue;
+  /* border: 1px dotted blue; */
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -76,23 +76,12 @@ h1 {
 }
 
 /* discount style */
-.discount > p:last-of-type {
+.yearly > p:last-of-type {
   font-size: 14px;
   color: var(--lilla);
 }
 
-/* subscribe button style */
-.ctaBtn {
-  width: 250px;
-  height: 68px;
-  border: none;
-  border-radius: 50px;
-  font-size: 17px;
-  background: var(--cta-color);
-  color: var(--purple);
-}
-
-/********************** RANGE AND CHECKBOX INPUTS *******************/
+/********************** RANGE AND CHECKBOX INPUTS ************************/
 
 /* range input */
 /* slider styles */
@@ -166,7 +155,7 @@ h1 {
   height: 50px;
 }
 
-/* toggle */
+/* toggle -- CHECKBOX */
 .togglesw {
   --s: 50px;
   /* adjust this to control the size*/
@@ -213,4 +202,17 @@ h1 {
   padding: calc(var(--s) / 10 + 0.05px) calc(var(--s) / 10);
   --_p: 100%;
   --_i: 1;
+}
+
+/* ***************************** CTA button ******************************* */
+
+/* subscribe button style */
+.ctaBtn {
+  width: 250px;
+  height: 68px;
+  border: none;
+  border-radius: 50px;
+  font-size: 17px;
+  background: var(--cta-color);
+  color: var(--purple);
 }

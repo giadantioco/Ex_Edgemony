@@ -6,20 +6,20 @@ import classNames from "classnames";
 function App() {
   // array of object for page views and prices
   const pageViewsPricing = [
-    { views: 10, price: 8 },
-    { views: 50, price: 12 },
-    { views: 100, price: 16 },
-    { views: 500, price: 24 },
-    { views: 1000, price: 36 },
+    { views: 10, price: 8, discount: 6 },
+    { views: 50, price: 12, discount: 9 },
+    { views: 100, price: 16, discount: 12 },
+    { views: 500, price: 24, discount: 18 },
+    { views: 1000, price: 36, discount: 27 },
   ];
   // state for current rangeinput index
-  const [rangeInput, setRangeInput] = useState(0);
+  const [rangeIndex, setRangeIndex] = useState(0);
 
   // function to handle change of rangeinput
   const handleChange = (e) => {
     const index = e.target.value;
     console.log(index);
-    setRangeInput(index);
+    setRangeIndex(index);
   };
 
   // state to handle toggle
@@ -42,6 +42,10 @@ function App() {
     setMouseY(e.clientY);
   };
 
+  // logic for true toggle
+  const currentPrice = pageViewsPricing[rangeIndex];
+  const displayPrice = toggle ? currentPrice.discount : currentPrice.price;
+
   return (
     <>
       <div className={styles.mainContainer} onMouseMove={handleMouseMove}>
@@ -61,7 +65,7 @@ function App() {
                     color: "var(--lilla)",
                   }}
                 >
-                  {pageViewsPricing[rangeInput].views}
+                  {pageViewsPricing[rangeIndex].views}
                 </span>
                 PAGE VIEWS
               </p>
@@ -74,7 +78,7 @@ function App() {
                     color: "var(--lilla)",
                   }}
                 >
-                  ${pageViewsPricing[rangeInput].price.toFixed(2)}
+                  ${displayPrice.toFixed(2)}
                 </span>
                 /MONTH
               </p>
@@ -86,22 +90,24 @@ function App() {
                 min="0"
                 max={pageViewsPricing.length - 1}
                 // step="1"
-                value={rangeInput}
+                value={rangeIndex}
                 onChange={handleChange}
               />
             </div>
             <div className={classNames(styles.content, styles.switchContainer)}>
-              <p>Monthly Billing</p>
-              <label className={styles.switch}>
-                <input
-                  type="checkbox"
-                  className={styles.togglesw}
-                  // value="monthly"
-                  checked={toggle}
-                  onChange={handleToggleChange}
-                />
-              </label>
-              <div className={styles.discount}>
+              <div className={styles.monthly}>
+                <p>Monthly Billing</p>
+              </div>
+              {/* <label className={styles.switch}> */}
+              <input
+                type="checkbox"
+                className={styles.togglesw}
+                // value="monthly"
+                checked={toggle}
+                onChange={handleToggleChange}
+              />
+              {/* </label> */}
+              <div className={styles.yearly}>
                 <p>Yearly Billing</p>
                 <p>25% discount</p>
               </div>
