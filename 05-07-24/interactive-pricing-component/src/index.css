@@ -1,38 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
 
 :root {
-  :root {
-    /* Primary Colors */
-    --soft-cyan: hsl(174, 77%, 80%);
-    --strong-cyan: hsl(174, 86%, 45%);
-    --light-grayish-red: hsl(14, 92%, 95%);
-    --light-red: hsl(15, 100%, 70%);
-    --pale-blue: hsl(226, 100%, 87%);
+  /* main colors */
+  --lilla: #b5a2d3;
+  --purple: #221635;
+  --white: #fff;
 
-    /* Neutral Colors */
-    --white: hsl(0, 0%, 100%);
-    --very-pale-blue: hsl(230, 100%, 99%);
-    --light-grayish-blue-empty-slider: hsl(224, 65%, 95%);
-    --light-grayish-blue-toggle-background: hsl(223, 50%, 87%);
-    --grayish-blue-text: hsl(225, 20%, 60%);
-    --dark-desaturated-blue: hsl(227, 35%, 25%);
-  }
+  /* cta colors */
+  --cta-color: linear-gradient(
+    to right,
+    rgba(230, 242, 253, 1) 0%,
+    rgba(255, 239, 181, 1) 38%,
+    rgba(228, 155, 155, 1) 75%,
+    rgba(187, 172, 211, 1) 100%
+  );
 }
 
+/* default */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* layout */
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: "Syne", sans-serif;
   min-width: 1440px;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-h1 {
-  font-weight: 800;
 }

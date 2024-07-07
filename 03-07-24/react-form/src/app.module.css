@@ -14,9 +14,10 @@
   padding: 20px 0;
 }
 
-/* label {
-  border: 1px solid red;
-} */
+label {
+  margin-bottom: 10px;
+  color: var(--Grey900);
+}
 
 /* internal container layout */
 .container {
@@ -107,7 +108,13 @@ button {
   border: none;
   padding: 15px;
   letter-spacing: 1px;
+  cursor: pointer;
 }
+
+/* button:hover {
+  background-color: var(--White);
+  color: var(--Green600);
+} */
 
 /* answers container */
 .answers {
@@ -116,16 +123,15 @@ button {
   bottom: 0;
   right: 0;
   width: 300px;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   padding: 10px;
   border-top-left-radius: 5px;
 }
 
 .answers > p {
   color: var(--White);
-
   font-size: 16px;
 }

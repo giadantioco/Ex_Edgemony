@@ -31,6 +31,7 @@ function App() {
             <div className={styles.nameContainer}>
               <label for="first name">First Name *</label>
               <input
+                required
                 type="text"
                 name="name"
                 onChange={(e) => handleChange(e)}
@@ -39,6 +40,7 @@ function App() {
             <div className={styles.surnameContainer}>
               <label for="last name">Last Name *</label>
               <input
+                required
                 type="text"
                 name="surname"
                 onChange={(e) => handleChange(e)}
@@ -47,7 +49,12 @@ function App() {
           </div>
           <div className={styles.subcontainer}>
             <label for="email">Email Address *</label>
-            <input type="text" name="email" onChange={(e) => handleChange(e)} />
+            <input
+              required
+              type="text"
+              name="email"
+              onChange={(e) => handleChange(e)}
+            />
           </div>
           <div className={`${styles.subcontainer} ${styles.thirdContainer}`}>
             <label for="query" className={styles.query}>
@@ -65,6 +72,7 @@ function App() {
           <div className={styles.subcontainer}>
             <label for="message">Message *</label>
             <textarea
+              required
               onChange={(e) => handleChange(e)}
               name="name"
               id="textarea"
@@ -73,7 +81,7 @@ function App() {
             ></textarea>
           </div>
           <div className={`${styles.subcontainer} ${styles.checkbox}`}>
-            <input type="checkbox" />
+            <input type="checkbox" required />
             <p>I consent to being contacteed by the team *</p>
           </div>
           <div className={styles.subcontainer}>
