@@ -64,6 +64,10 @@ header > h1 {
 .listContainer {
   /* border: 1px solid red; */
   width: 600px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  gap: 15px;
 }
 
 /* ul */
@@ -72,18 +76,25 @@ header > h1 {
 /* list item */
 .list {
   /* min-width: 720px; */
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   background-color: rgba(255, 255, 255, 50%);
   min-height: 50px;
-  border-radius: 23px;
+  border-radius: 15px;
   list-style-type: none;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 15px;
 }
 
 /* delete button in listed item */
-.deleteBtn > img {
+
+.deleteBtn {
   background-color: transparent;
+  border: none;
+}
+.deleteBtn > img {
+  width: 30px;
+  height: 30px;
 }
