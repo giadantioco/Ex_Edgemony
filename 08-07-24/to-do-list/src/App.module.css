@@ -1,0 +1,85 @@
+/* div main container (contains all page elements */
+.mainContainer {
+  min-width: 600px;
+  min-height: 90dvh;
+  /* border: 10px solid red; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* header */
+header {
+  /* border: 1px solid green; */
+  padding: 10px;
+  text-align: center;
+  color: var(--violet);
+}
+/* header subtitle */
+header > h1 {
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 75px;
+}
+
+/* input & input button*/
+.inputContainer {
+  /* border: 2px dotted blue; */
+  display: flex;
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+/* input */
+.input {
+  border-radius: 30px;
+  border: none;
+  text-align: center;
+  width: auto;
+  height: 45px;
+}
+
+/* input button */
+.inputBtn {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color: var(--violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* display */
+
+/* LIST */
+/* list container */
+.listContainer {
+  border: 1px solid red;
+  width: 600px;
+}
+
+/* ul */
+.listContainer > ul {
+}
+/* list item */
+.list {
+  /* min-width: 720px; */
+  border: 1px solid blue;
+  background-color: rgba(var(--white-rgb) 0.5);
+  min-height: 50px;
+  border-radius: 23px;
+  list-style-type: none;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: center;
+  align-items: center; */
+}

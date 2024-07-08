@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+
+:root {
+  /* main colors */
+  --pink: #e49b9b;
+  --white-rgb: 255, 255, 255;
+  --violet: #221635;
+}
+
+/* default */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* layout */
+body {
+  font-family: "Syne", sans-serif;
+  min-width: 1209px;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pink);
+}
