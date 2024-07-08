@@ -1,0 +1,30 @@
+/* counter.css */
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 20px;
+}
+
+.counter button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.counter button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.counter span {
+  font-size: 20px;
+  margin: 0 10px;
+}
