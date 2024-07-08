@@ -12,7 +12,15 @@ const initialTodos = [
   },
   {
     id: 2,
-    title: "compra terriccio",
+    title: "fare la spesa",
+  },
+  {
+    id: 3,
+    title: "fare la spesa",
+  },
+  {
+    id: 4,
+    title: "fare la spesa",
   },
 ];
 
@@ -31,8 +39,8 @@ function App() {
     setInput(e.target.value);
   };
 
-  const handleDelete = (e) => {
-    const newList = todos.filter((todo) => todo.id !== e.target.id);
+  const handleDelete = (id) => {
+    const newList = todos.filter((todo) => todo.id !== id);
     setTodos(newList);
   };
 
@@ -63,7 +71,11 @@ function App() {
                 return (
                   <li className={styles.list} key={todo.id}>
                     {todo.title}{" "}
-                    <button id={todo.id} onClick={handleDelete}>
+                    <button
+                      id={todo.id}
+                      onClick={() => handleDelete(todo.id)}
+                      className={styles.deleteBtn}
+                    >
                       <img src={deleteIcon} alt="delete icon" />
                     </button>
                   </li>

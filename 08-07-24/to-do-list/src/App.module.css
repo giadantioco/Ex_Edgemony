@@ -62,7 +62,7 @@ header > h1 {
 /* LIST */
 /* list container */
 .listContainer {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 600px;
 }
 
@@ -73,13 +73,17 @@ header > h1 {
 .list {
   /* min-width: 720px; */
   border: 1px solid blue;
-  background-color: rgba(var(--white-rgb) 0.5);
+  background-color: rgba(255, 255, 255, 50%);
   min-height: 50px;
   border-radius: 23px;
   list-style-type: none;
   padding: 15px;
   display: flex;
   justify-content: space-between;
-  /* justify-content: center;
-  align-items: center; */
+  align-items: center;
+}
+
+/* delete button in listed item */
+.deleteBtn > img {
+  background-color: transparent;
 }
