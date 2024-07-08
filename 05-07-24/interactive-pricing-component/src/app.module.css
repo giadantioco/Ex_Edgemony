@@ -22,6 +22,7 @@ footer {
 header > h3 {
   margin-top: 15px;
   font-weight: 300;
+  font-size: 20px;
 }
 /* title */
 h1 {
@@ -80,6 +81,8 @@ h1 {
   font-size: 14px;
   color: var(--lilla);
 }
+
+/* opacity for toggle btns */
 
 /********************** RANGE AND CHECKBOX INPUTS ************************/
 
@@ -215,4 +218,5 @@ h1 {
   font-size: 17px;
   background: var(--cta-color);
   color: var(--purple);
+  cursor: pointer;
 }

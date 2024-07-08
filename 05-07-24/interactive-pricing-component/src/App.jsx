@@ -96,7 +96,7 @@ function App() {
             </div>
             <div className={classNames(styles.content, styles.switchContainer)}>
               <div className={styles.monthly}>
-                <p>Monthly Billing</p>
+                <p style={{ opacity: toggle ? 0.5 : 1 }}>Monthly Billing</p>
               </div>
               {/* <label className={styles.switch}> */}
               <input
@@ -108,8 +108,8 @@ function App() {
               />
               {/* </label> */}
               <div className={styles.yearly}>
-                <p>Yearly Billing</p>
-                <p>25% discount</p>
+                <p style={{ opacity: toggle ? 1 : 0.5 }}>Yearly Billing</p>
+                <p style={{ opacity: toggle ? 1 : 0.5 }}>25% discount</p>
               </div>
             </div>
           </div>
