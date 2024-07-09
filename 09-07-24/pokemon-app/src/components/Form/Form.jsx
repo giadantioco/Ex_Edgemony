@@ -22,7 +22,7 @@ function Form({ setSearchPokemon }) {
           onChange={handleChange}
         />
         <button type="submit" className={styles.submit}>
-          submit
+          refresh
         </button>
       </form>
     </div>
