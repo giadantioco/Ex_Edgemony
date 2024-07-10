@@ -1,0 +1,11 @@
+.header {
+  background-color: var(--white);
+  padding: 16px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: var(--blue);
+}

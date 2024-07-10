@@ -1,0 +1,33 @@
+.form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: 16px auto;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--white);
+  opacity: 0.9;
+  border-radius: 15px;
+}
+
+.form label {
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.form input,
+.form select,
+.form textarea {
+  padding: 8px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+}
+
+.form button {
+  padding: 8px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
