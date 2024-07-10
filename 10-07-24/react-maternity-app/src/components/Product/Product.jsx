@@ -1,15 +1,26 @@
-import React from "react";
+import styles from "./Product.module.css";
 
 function Product({ product, onClick }) {
   return (
-    <li>
-      <h3>{product.name}</h3>
-      <p>{product.description}</p>
-      <p>{product.price} €</p>
-      <p>{product.brand}</p>
-      <p>{product.availability}</p>
+    <li className={styles.product}>
+      {/* <h2>{product.name}</h2> */}
+      <p>
+        <strong>Categoria:</strong> {product.category}
+      </p>
+      <p>
+        <strong>Descrizione:</strong> {product.description}
+      </p>
+      <p>
+        <strong>Prezzo:</strong> {product.price} €
+      </p>
+      <p>
+        <strong>Marca:</strong> {product.brand}
+      </p>
+      <p>
+        <strong>Disponibilità:</strong> {product.availability}
+      </p>
       <button id={product.id} onClick={onClick}>
-        Delete
+        Elimina
       </button>
     </li>
   );

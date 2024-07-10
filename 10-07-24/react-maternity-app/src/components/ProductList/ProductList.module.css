@@ -1,1 +1,17 @@
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
 
+.filterInput {
+  width: 300px;
+  margin: 16px auto;
+  background-color: var(--blue);
+  color: var(--white);
+  text-align: center;
+  padding: 16px;
+  border: 1px solid var(--white);
+  border-radius: 15px;
+}

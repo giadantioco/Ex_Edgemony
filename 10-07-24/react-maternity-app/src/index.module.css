@@ -5,6 +5,7 @@
   --blue: #192969;
   --salmon: #ec715d;
   --gray: #ced4da;
+  --black: #000;
 }
 
 * {
@@ -18,5 +19,9 @@ body {
   background-image: url("./assets/blue_mama.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: top; */
+  background-attachment: fixed;
+  min-height: 100dvh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

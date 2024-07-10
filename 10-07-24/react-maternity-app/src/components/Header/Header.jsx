@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 function Header() {
   return (
     <header className={styles.header}>
-      <h1>Gestione Prodotti di Maternità</h1>
+      <h1>Prodotti per la Maternità</h1>
     </header>
   );
 }
