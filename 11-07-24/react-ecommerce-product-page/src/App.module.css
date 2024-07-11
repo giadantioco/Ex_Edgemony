@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.mainContent {
+  display: flex;
+  gap: 20px;
+  /* flex: 1; */
+}
