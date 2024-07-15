@@ -1,0 +1,9 @@
+.container {
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.addBtn {
+  padding: 1rem;
+}
