@@ -13,16 +13,25 @@ function LocalStorage() {
   };
 
   useEffect(() => {
+    getPost();
+  }, []);
+
+  useEffect(() => {
     console.log(post);
-  });
+    setLocalStorage();
+    logLocalStorage();
+  }, []);
 
   const setLocalStorage = () => {
     // to save
-    localStorage.setItem("post", post);
+    localStorage.setItem("post", JSON.stringify(post));
   };
 
-  // to get
-  const cat = localStorage.getItem("myCat");
+  const logLocalStorage = () => {
+    // to get
+    const post = localStorage.getItem("post");
+    console.log("log in post: ", JSON.parse(post));
+  };
 
   return (
     <div>
