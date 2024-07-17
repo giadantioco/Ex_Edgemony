@@ -21,7 +21,7 @@ function App() {
   //  funzione che aggiunge prodotti al carrello
   const addToCart = (product) => {
     // tentativo di recupero del prodotto corrente dal local storage
-    // se il carrello è vuoto restituisce null, ma con || [] evitoche questo accada
+    // se il carrello è vuoto restituisce null, ma con || [] evitoche questo accada ed aggiungo l'item all'array
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     // debugging
     console.log(localStorage);

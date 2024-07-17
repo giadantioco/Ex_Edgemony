@@ -1,17 +1,30 @@
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 
 function Cart() {
-  const [user, setUser] = useState(null);
+  const [cart, setCart] = useState([]);
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setUser(user);
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(cart);
   }, []);
 
   return (
     <div>
-      Ciao, {user && user.name}
-      <Outlet />
+      <h1>Cart</h1>
+      {cart.length === 0 ? (
+        <p>Your cart is empty</p>
+      ) : (
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <p>{item.title}</p>
+              {/* <p>{item.description}</p> */}
+            </li>
+          ))}
+        </ul>
+      )}
+      {/* <Outlet /> */}
     </div>
   );
 }
