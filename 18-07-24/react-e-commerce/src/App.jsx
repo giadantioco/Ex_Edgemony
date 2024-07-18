@@ -34,22 +34,32 @@ function App() {
   };
 
   return (
-    <>
-      <div>
-        <h1>Home</h1>
-        <ul>
-          {products.map((product) => (
-            <li key={product.id}>
-              <Link className={"font-bold"} to={`product/${product.id}`}>
-                <p>{product.title}</p>
-                <img src={product.images[0]} alt="" />
-                <button onClick={() => addToCart(product)}>Add to Cart</button>
-              </Link>
-            </li>
-          ))}
-        </ul>
+    <div className="container mx-auto py-4">
+      <h1 className="text-2xl font-bold mb-4">Products</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map((product) => (
+          <div key={product.id} className="bg-white shadow-md overflow-hidden">
+            <Link to={`product/${product.id}`}>
+              <img
+                src={product.images[0]}
+                alt={product.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-10">
+                <p className="text-lg font-bold mb-2">{product.title}</p>
+                <p className="text-gray-700">{product.price}.00 €</p>
+              </div>
+            </Link>
+            <button
+              onClick={() => addToCart(product)}
+              className="block mx-auto mt-2 bg-slate-800 hover:bg-slate-600 text-white text-sm py-2 px-4 rounded-lg focus:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 
