@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -39,9 +40,11 @@ function App() {
         <ul>
           {products.map((product) => (
             <li key={product.id}>
-              <p>{product.title}</p>
-              <img src={product.images[0]} alt="" />
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
+              <Link className={"font-bold"} to={`product/${product.id}`}>
+                <p>{product.title}</p>
+                <img src={product.images[0]} alt="" />
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
+              </Link>
             </li>
           ))}
         </ul>
