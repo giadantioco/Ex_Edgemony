@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Stella Mccartney Kids",
+      "description": "Light blue swimsuit for baby girl with bees",
+      "price": "61",
+      "category": "swimsuit",
+      "image": "/img/swimsuit.webp"
+    },
+    {
+      "id": "2",
+      "title": "Stella Mccartney Kids",
+      "description": "Pink sweatshirt for baby girl with seahorse",
+      "price": "56",
+      "category": "jumper",
+      "image": "/img/jumper.webp"
+    },
+    {
+      "id": "3",
+      "title": "Moschino Kids",
+      "description": "Beige hat for babies with Teddy Bear",
+      "price": "54",
+      "category": "hat",
+      "image": "/img/hat.webp"
+    },
+    {
+      "id": "4",
+      "title": "Burberry Kids",
+      "description": "Beige suit for baby boy with vintage check",
+      "price": "425",
+      "category": "suit",
+      "image": "/img/suit.webp"
+    },
+    {
+      "id": "5",
+      "title": "Dolce & Gabbana Kids",
+      "description": "White babygrow set for baby boy with vintage cars models",
+      "price": "485",
+      "category": "babygrow",
+      "image": "/img/babygrow.webp"
+    },
+    {
+      "id": "6",
+      "title": "Fendi Kids",
+      "description": "Multicolor set for babies with FF",
+      "price": "153",
+      "category": "socks",
+      "image": "/img/socks.webp"
+    }
+  ]
+}
