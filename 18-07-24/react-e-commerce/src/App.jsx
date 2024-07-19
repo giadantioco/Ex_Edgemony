@@ -11,7 +11,7 @@ function App() {
     fetch("https://api.escuelajs.co/api/v1/products")
       .then((res) => res.json())
       .then((data) => setProducts(data.slice(0, 10)));
-    console.log(products);
+    // console.log(products);
   }, []);
 
   // useEffect per 'loggare' prodotti dopo primo render
