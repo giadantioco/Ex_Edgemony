@@ -7,7 +7,7 @@ const menuList = [
 const NavBar = () => {
   return (
     <nav className="flex items-center justify-between py-2 px-4 bg-slate-300">
-      <h1 className="font-bold">My Lttle Shop.com</h1>
+      <h1 className="font-bold">Giada's E-commerce</h1>
       <ul className="flex gap-4">
         {menuList.map((item, index) => (
           <li key={index}>
