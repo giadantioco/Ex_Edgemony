@@ -21,10 +21,6 @@ function App() {
     getProducts();
   }, []);
 
-  useEffect(() => {
-    console.log(productList);
-  }, [productList]);
-
   if (isLoading) return <p>Is loading...</p>;
 
   return (
@@ -37,7 +33,7 @@ function App() {
 
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-              <thead className="ltr:text-left rtl:text-right">
+              <thead className="text-left rtl:text-right">
                 <tr>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     {labels.productTableItem}
@@ -56,28 +52,32 @@ function App() {
               </thead>
 
               <tbody className="divide-y divide-gray-200">
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    John Doe
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    24/05/1995
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    Web Developer
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    $120,000
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2">
-                    <a
-                      href="#"
-                      className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
+                {productList.map((product) => {
+                  return (
+                    <tr key={product.id}>
+                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        {product.item}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {product.category}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {product.quantity}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {product.isbn}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2">
+                        <a
+                          href="#"
+                          className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                        >
+                          View
+                        </a>
+                      </td>
+                    </tr>
+                  );
+                })}
 
                 <tr>
                   <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
