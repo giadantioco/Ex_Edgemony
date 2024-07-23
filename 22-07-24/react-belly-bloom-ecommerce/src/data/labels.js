@@ -2,7 +2,7 @@ export const labels = {
   productTableItem: "Item",
   productTableCategory: "Category",
   productTableQuantity: "Quantity",
-  productTablePrice: "Price",
+  productTableIsbn: "ISBN",
 
   productList: "Product List",
 };

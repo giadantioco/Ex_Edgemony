@@ -1,6 +1,32 @@
 import { labels } from "./data/labels";
+import { useEffect, useState } from "react";
+import { getProductList } from "./api/clientProduct";
 
 function App() {
+  const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getProducts = async () => {
+    try {
+      const data = await getProductList();
+      setProductList(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    console.log(productList);
+  }, [productList]);
+
+  if (isLoading) return <p>Is loading...</p>;
+
   return (
     <>
       <div className="flex justify-center">
@@ -23,7 +49,7 @@ function App() {
                     {labels.productTableQuantity}
                   </th>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {labels.productTablePrice}
+                    {labels.productTableIsbn}
                   </th>
                   <th className="px-4 py-2"></th>
                 </tr>
