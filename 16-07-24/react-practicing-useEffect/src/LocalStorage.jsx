@@ -19,7 +19,9 @@ function LocalStorage() {
   useEffect(() => {
     console.log(post);
     setLocalStorage();
+    console.log(post);
     logLocalStorage();
+    console.log(post);
   }, []);
 
   const setLocalStorage = () => {
