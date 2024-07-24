@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import DefaultLayout from "./layout/DefaultLayout";
 import ProductDetail from "./routes/ProductDetail.jsx";
+import ErrorPage from "./routes/ErrorPage.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <DefaultLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
