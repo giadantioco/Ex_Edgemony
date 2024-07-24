@@ -1,7 +1,7 @@
 export const getProductList = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      reject({ message: "errore" });
+      // reject({ message: "errore" });
       resolve(() => {
         return [
           {
