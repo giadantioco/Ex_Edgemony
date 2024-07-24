@@ -27,7 +27,7 @@ function App() {
     getProducts();
   }, []);
 
-  if (isLoading) return <p>Is loading...</p>;
+  if (isLoading) return <p>{labels.isLoading}</p>;
 
   return (
     <>
@@ -38,13 +38,13 @@ function App() {
           </div>
           {/* creo filtro */}
           <div className="flex flex-col gap-2 p-2 ">
-            <h2>Filter item</h2>
+            <h2>{labels.filterItem}</h2>
             <input
               className="border-orange-600 border-2 w-[250px] rounded-2xl p-1"
               type="text"
               onChange={handleChange}
               value={filter}
-              placeholder="filter by item"
+              placeholder={labels.filterByItem}
             />
           </div>
           <div className="overflow-x-auto">
