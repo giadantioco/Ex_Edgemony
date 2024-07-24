@@ -70,7 +70,9 @@ function App() {
               <tbody className="divide-y divide-gray-200">
                 {productList
                   // aggiungo filter al map
-                  .filter((product) => product.item.includes(filter))
+                  .filter((product) =>
+                    product.item.toLowerCase().includes(filter)
+                  )
                   .map((product) => {
                     return (
                       <tr key={product.id}>
