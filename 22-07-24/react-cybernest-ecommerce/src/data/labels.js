@@ -9,4 +9,10 @@ export const labels = {
   logoTitle: "Cybernest",
 
   navHome: "Home",
+  filterItem: "Filter Item",
+  filterByItem: "filter by item",
+
+  isLoading: "Is loading",
+
+  errorUhoh: "Uh-oh!",
 };
