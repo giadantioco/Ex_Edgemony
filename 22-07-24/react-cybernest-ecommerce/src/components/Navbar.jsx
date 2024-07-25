@@ -1,7 +1,24 @@
 import { NavLink } from "react-router-dom";
 import { labels } from "../data/labels";
 
-const menuList = [{ name: labels.navHome, path: "/" }];
+const menuList = [
+  // {
+  //   name: labels.logoTitle,
+  //   path: "/",
+  // },
+  {
+    name: labels.navHome,
+    path: "/",
+  },
+  {
+    name: labels.navProductDetail,
+    path: "products/:id",
+  },
+  {
+    name: labels.navCreate,
+    path: "create",
+  },
+];
 
 const Navbar = () => {
   return (

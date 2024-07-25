@@ -31,6 +31,23 @@ export const getProductList = () => {
   });
 };
 
+// simulazione chiamata API per aggiungere un nuovo elemento (POST)
+export const addItem = (body) => {
+  // body rappresenta i dati dell'elemento da aggiungere
+  return new Promise((resolve) => {
+    // la funzione restituisce una nuova promessa (questo simula un'operazione asincrona)
+    setTimeout(() => {
+      // simulazione ritardo asincrono di 1000ms
+      resolve({
+        // dopo ritardo promessa risolta
+        // funzione che restituisce l'oggetto
+        ...body,
+        id: self.crypto.randomUUID(), // contiene tutte prop di body + id randomico geneerato dal metodo self.crypto.randomUUID
+      });
+    }, 3000);
+  });
+};
+
 export const getProductDetail = (id) => {
   console.log(id);
   return new Promise((resolve) => {

@@ -5,6 +5,7 @@ import "./index.css";
 import DefaultLayout from "./layout/DefaultLayout";
 import ProductDetail from "./routes/ProductDetail.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
+import Create from "./routes/Create.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "products/:id",
         element: <ProductDetail />,
+      },
+      {
+        path: "create",
+        element: <Create />,
       },
     ],
   },
