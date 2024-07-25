@@ -5,13 +5,15 @@ export const labels = {
   productTableQuantity: "Quantity",
   productTableIsbn: "ISBN",
   productTableBtnView: "View",
+  productTableBtnEdit: "Edit",
   // title in home
   productList: "Product List",
   // navbar content
   logoTitle: "Cybernest",
   navHome: "Home",
   navProductDetail: "Product Detail",
-  navCreate: "Insert Product",
+  navCreate: "Add Product",
+  navEdit: "Edit Product",
   // filter title and searchbar
   filterItem: "Filter Item",
   filterByItem: "filter by item",

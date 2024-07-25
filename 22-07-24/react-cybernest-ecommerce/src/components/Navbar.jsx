@@ -18,6 +18,10 @@ const menuList = [
     name: labels.navCreate,
     path: "create",
   },
+  {
+    name: labels.navEdit,
+    path: "edit/:id",
+  },
 ];
 
 const Navbar = () => {
