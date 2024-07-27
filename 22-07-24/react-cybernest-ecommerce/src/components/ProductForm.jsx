@@ -36,9 +36,22 @@ function ProductForm({ value, onSubmit }) {
     });
   };
 
+  // Verifica se i campi sono validi, considerando che potrebbero essere undefined o null
+  // const isFieldValid = (field) => {
+  //   return typeof field === "string" && field.trim().length > 0;
+  // };
+
+  // const formValidation = !(
+  //   isFieldValid(form.title) &&
+  //   isFieldValid(form.category) &&
+  //   isFieldValid(form.quantity) &&
+  //   isFieldValid(form.isbn) &&
+  //   isFieldValid(form.description)
+  // );
+
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleChange}
       action="#"
       className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
     >
