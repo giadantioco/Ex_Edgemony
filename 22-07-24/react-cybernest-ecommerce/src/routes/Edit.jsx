@@ -18,9 +18,7 @@ function Edit() {
       setProduct(data);
     } catch (error) {
       console.log(error);
-      setIsError((prevState) => {
-        return { prevState, message: error.message, isError: true };
-      });
+      setIsError({ message: error.message, isError: true });
     } finally {
       setIsLoading(false);
     }
@@ -34,11 +32,12 @@ function Edit() {
 
   // genstisce l'invio del form
   const handleSubmit = async (e) => {
+    e.preventDefault(); // previene comportamento form predef
     try {
-      e.preventDefault(); // previene comportamento form predef
       setIsLoading(true);
-      // chiama funzione asinc addItemper aggiungere un nuovo elemento
-      // const res = await addItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
+      const formData = new FormData(e.target);
+      const updatedProduct = Object.fromEntries(formData.entries());
+      await addItem(updatedProduct);
       navigate("/");
       console.log("pippo");
     } catch (error) {
@@ -54,7 +53,7 @@ function Edit() {
   }
 
   if (isError.isError) {
-    return <div>Error: </div>;
+    return <div>Error: {isError.message}</div>;
   }
 
   return (
@@ -69,7 +68,7 @@ function Edit() {
             item, category, quantity, isbn, description, image
           </p>
 
-          <ProductForm value={product} onSubmit={handleSubmit}></ProductForm>
+          <ProductForm value={product} onSubmit={handleSubmit} />
         </div>
       </div>
     </div>

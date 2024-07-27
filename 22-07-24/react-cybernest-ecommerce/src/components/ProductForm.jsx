@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 function ProductForm({ value, onSubmit }) {
+  console.log(value);
   const initialState = {
     title: value?.title || "",
     category: value?.category || "",
@@ -13,23 +14,14 @@ function ProductForm({ value, onSubmit }) {
   // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setForm(initialState);
+    setForm({
+      title: value?.title || "",
+      category: value?.category || "",
+      quantity: value?.quantity || "",
+      isbn: value?.isbn || "",
+      description: value?.description || "",
+    });
   }, [value]);
-
-  const titleValidation = !form.title.length;
-  const categoryValidation = !form.category.length;
-  const quantityValidation = !form.quantity.length;
-  const isbnValidation = !form.isbn.length;
-  const descriptionValidation = !form.description.length;
-  // const imageValidation = !form.image.length;
-
-  const formValidation =
-    titleValidation ||
-    categoryValidation ||
-    quantityValidation ||
-    isbnValidation ||
-    descriptionValidation;
-  // || imageValidation;
 
   // gestisce cambiamento input del form
   const handleChange = (e) => {
