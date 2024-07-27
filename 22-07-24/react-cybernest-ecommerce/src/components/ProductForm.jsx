@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ProductForm({ value, onSubmit }) {
   const initialState = {
-    item: value?.item || "",
+    title: value?.title || "",
     category: value?.category || "",
     quantity: value?.quantity || "",
     isbn: value?.isbn || "",
@@ -10,22 +10,26 @@ function ProductForm({ value, onSubmit }) {
   };
 
   const [form, setForm] = useState(initialState);
-  const [isLoading, setIsLoading] = useState(false)
+  // const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setForm(initialState);
+  }, [value]);
 
   const titleValidation = !form.title.length;
   const categoryValidation = !form.category.length;
   const quantityValidation = !form.quantity.length;
   const isbnValidation = !form.isbn.length;
   const descriptionValidation = !form.description.length;
-  const imageValidation = !form.image.length;
+  // const imageValidation = !form.image.length;
 
   const formValidation =
     titleValidation ||
     categoryValidation ||
     quantityValidation ||
     isbnValidation ||
-    descriptionValidation ||
-    imageValidation;
+    descriptionValidation;
+  // || imageValidation;
 
   // gestisce cambiamento input del form
   const handleChange = (e) => {
@@ -42,7 +46,7 @@ function ProductForm({ value, onSubmit }) {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       action="#"
       className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
     >
@@ -52,6 +56,7 @@ function ProductForm({ value, onSubmit }) {
         <div className="relative">
           <input
             name="title"
+            value={form.title}
             onChange={handleChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -66,6 +71,7 @@ function ProductForm({ value, onSubmit }) {
         <div className="relative">
           <input
             name="category"
+            value={form.category}
             onChange={handleChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -80,6 +86,7 @@ function ProductForm({ value, onSubmit }) {
         <div className="relative">
           <input
             name="quantity"
+            value={form.quantity}
             onChange={handleChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -94,6 +101,7 @@ function ProductForm({ value, onSubmit }) {
         <div className="relative">
           <input
             name="isbn"
+            value={form.isbn}
             onChange={handleChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -108,6 +116,7 @@ function ProductForm({ value, onSubmit }) {
         <div className="relative">
           <input
             name="description"
+            value={form.description}
             onChange={handleChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -116,7 +125,7 @@ function ProductForm({ value, onSubmit }) {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <label className="sr-only">Image</label>
 
         <div className="relative">
@@ -128,19 +137,15 @@ function ProductForm({ value, onSubmit }) {
             placeholder="Add image"
           />
         </div>
-      </div>
+      </div> */}
 
-      {!isLoading ? (
-        <button
-          disabled={formValidation}
-          type="submit"
-          className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
-        >
-          Submit
-        </button>
-      ) : (
-        <button disabled> Is loading... </button>
-      )}
+      <button
+        // disabled={formValidation}
+        type="submit"
+        className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+      >
+        Submit
+      </button>
     </form>
   );
 }

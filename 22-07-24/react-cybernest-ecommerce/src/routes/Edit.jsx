@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProductDetail } from "../api/clientProduct";
+import { getProductDetail, addItem } from "../api/clientProduct";
 import ProductForm from "../components/ProductForm";
 
 function Edit() {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
   const [isError, setIsError] = useState({ messagge: "", isError: false });
@@ -28,7 +30,7 @@ function Edit() {
     //prendo il prodotto
     //lo salvo in uno stato
     getProduct(id);
-  }, []);
+  }, [id]);
 
   // genstisce l'invio del form
   const handleSubmit = async (e) => {
@@ -36,18 +38,24 @@ function Edit() {
       e.preventDefault(); // previene comportamento form predef
       setIsLoading(true);
       // chiama funzione asinc addItemper aggiungere un nuovo elemento
-      const res = await addItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
-      console.log(res);
+      // const res = await addItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
       navigate("/");
+      console.log("pippo");
     } catch (error) {
       console.log(error);
-      setIsError((prevState) => {
-        return { ...prevState, message: error.message, isError: true };
-      });
+      setIsError({ message: error.message, isError: true });
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError.isError) {
+    return <div>Error: </div>;
+  }
 
   return (
     <div>
@@ -61,13 +69,7 @@ function Edit() {
             item, category, quantity, isbn, description, image
           </p>
 
-          <ProductForm
-            value={product}
-            onSubmit={(e) => {
-              e.preventDefault();
-              console.log(e);
-            }}
-          ></ProductForm>
+          <ProductForm value={product} onSubmit={handleSubmit}></ProductForm>
         </div>
       </div>
     </div>
