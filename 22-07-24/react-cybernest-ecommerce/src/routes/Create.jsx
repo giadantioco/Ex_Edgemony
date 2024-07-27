@@ -62,6 +62,7 @@ function Create() {
       setIsLoading(true);
       // chiama funzione asinc addItemper aggiungere un nuovo elemento
       const res = await addItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
+      setForm(initialState);
       console.log(res);
       navigate("/");
     } catch (error) {

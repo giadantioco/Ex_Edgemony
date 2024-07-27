@@ -11,10 +11,6 @@ const menuList = [
     path: "/",
   },
   {
-    name: labels.navProductDetail,
-    path: "products/:id",
-  },
-  {
     name: labels.navCreate,
     path: "create",
   },
