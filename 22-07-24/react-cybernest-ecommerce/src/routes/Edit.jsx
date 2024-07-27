@@ -27,7 +27,27 @@ function Edit() {
   useEffect(() => {
     //prendo il prodotto
     //lo salvo in uno stato
+    getProduct(id);
   }, []);
+
+  // genstisce l'invio del form
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault(); // previene comportamento form predef
+      setIsLoading(true);
+      // chiama funzione asinc addItemper aggiungere un nuovo elemento
+      const res = await addItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
+      console.log(res);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setIsError((prevState) => {
+        return { ...prevState, message: error.message, isError: true };
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -41,7 +61,13 @@ function Edit() {
             item, category, quantity, isbn, description, image
           </p>
 
-          <ProductForm></ProductForm>
+          <ProductForm
+            value={product}
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log(e);
+            }}
+          ></ProductForm>
         </div>
       </div>
     </div>
