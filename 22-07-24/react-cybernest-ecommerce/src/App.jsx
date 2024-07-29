@@ -1,6 +1,6 @@
 import { labels } from "./data/labels";
 import { useEffect, useState } from "react";
-import { getProductList } from "./api/clientProduct";
+import { getProductList, deleteItem } from "./api/clientProduct";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -18,9 +18,22 @@ function App() {
       setIsLoading(false);
     }
   };
-  //  creo funzione per gestire evento
+
   const handleChange = (e) => {
     setFilter(e.target.value.toLowerCase());
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const res = await deleteItem(id);
+      console.log(res);
+      getProducts();
+      setIsLoading(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log(id);
+    }
   };
 
   useEffect(() => {
@@ -102,6 +115,13 @@ function App() {
                           >
                             {labels.productTableBtnView}
                           </Link>
+
+                          <button
+                            onClick={() => handleDelete(product.id)}
+                            className="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700"
+                          >
+                            {labels.productTableBtnDelete}
+                          </button>
                         </td>
                       </tr>
                     );

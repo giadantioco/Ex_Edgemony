@@ -33,12 +33,11 @@ function Edit() {
   }, []);
 
   // genstisce l'invio del form
-  // genstisce l'invio del form
   const handleSubmit = async (formData) => {
     console.log(formData);
     try {
       setIsLoading(true);
-      const res = await editItem({ ...formData, id });
+      const res = await editItem(form);
       console.log(res);
       navigate("/");
     } catch (error) {
