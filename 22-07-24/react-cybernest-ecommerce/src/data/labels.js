@@ -6,6 +6,7 @@ export const labels = {
   productTableIsbn: "ISBN",
   productTableBtnView: "View",
   productTableBtnEdit: "Edit",
+  productTableBtnDelete: "Delete",
   // title in home
   productList: "Product List",
   // navbar content
@@ -14,6 +15,7 @@ export const labels = {
   navProductDetail: "Product Detail",
   navCreate: "Add Product",
   navEdit: "Edit Product",
+
   // filter title and searchbar
   filterItem: "Filter Item",
   filterByItem: "filter by item",
