@@ -9,6 +9,7 @@ function Edit() {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
+  const [form, setForm] = useState({});
   const [isError, setIsError] = useState({ messagge: "", isError: false });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,14 +31,17 @@ function Edit() {
     //prendo il prodotto
     //lo salvo in uno stato
     getProduct(id);
-  }, []);
+  }, [id]);
 
   // genstisce l'invio del form
-  const handleSubmit = async (formData) => {
-    console.log(formData);
+  // genstisce l'invio del form
+  const handleSubmit = async (e) => {
     try {
+      e.preventDefault(); // previene comportamento form predef
       setIsLoading(true);
-      const res = await editItem(form);
+      // chiama funzione asinc addItemper aggiungere un nuovo elemento
+      const res = await editItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
+
       console.log(res);
       navigate("/");
     } catch (error) {
@@ -48,6 +52,11 @@ function Edit() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
   if (isLoading) {
@@ -70,7 +79,11 @@ function Edit() {
             item, category, quantity, isbn, description, image
           </p>
 
-          <ProductForm value={product} onSubmit={handleSubmit}></ProductForm>
+          <ProductForm
+            value={product}
+            onSubmit={handleSubmit}
+            onChange={handleFormChange}
+          ></ProductForm>
         </div>
       </div>
     </div>

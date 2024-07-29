@@ -115,7 +115,7 @@ export const editItem = (body) => {
     setTimeout(() => {
       console.log("Editing Product: ", body);
 
-      resolve(...body);
+      resolve(body);
     }, 3000);
   });
 };
@@ -125,7 +125,7 @@ export const deleteItem = (id) => {
     setTimeout(() => {
       console.log("Deleting Product: ", id);
 
-      resolve(...id);
+      resolve(id);
     }, 500);
   });
 };
