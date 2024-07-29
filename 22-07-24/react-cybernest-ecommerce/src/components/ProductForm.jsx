@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function ProductForm({ value, onSubmit }) {
-  console.log(value);
+  // console.log(value);
   const initialState = {
     title: value?.title || "",
     category: value?.category || "",
@@ -12,29 +12,6 @@ function ProductForm({ value, onSubmit }) {
 
   const [form, setForm] = useState(initialState);
   // const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setForm({
-      title: value?.title || "",
-      category: value?.category || "",
-      quantity: value?.quantity || "",
-      isbn: value?.isbn || "",
-      description: value?.description || "",
-    });
-  }, [value]);
-
-  // gestisce cambiamento input del form
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setForm((prevState) => {
-      // restituisce il nuovo stato basato sul precedente
-      return {
-        ...prevState, // copia tutte le proprietà dello stato precedente
-        [name]: value,
-      }; // sovrascrive il valore della prop specificata con il nuovo valore
-    });
-  };
 
   // Verifica se i campi sono validi, considerando che potrebbero essere undefined o null
   // const isFieldValid = (field) => {
@@ -49,9 +26,31 @@ function ProductForm({ value, onSubmit }) {
   //   isFieldValid(form.description)
   // );
 
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
+
+  // gestisce cambiamento input del form
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setForm((prevState) => {
+      // restituisce il nuovo stato basato sul precedente
+      return {
+        ...prevState, // copia tutte le proprietà dello stato precedente
+        [name]: value,
+      }; // sovrascrive il valore della prop specificata con il nuovo valore
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(form);
+  };
+
   return (
     <form
-      onSubmit={handleChange}
+      onSubmit={onSubmit}
       action="#"
       className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
     >

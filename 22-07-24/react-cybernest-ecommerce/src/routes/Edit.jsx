@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProductDetail, addItem } from "../api/clientProduct";
+import { getProductDetail, editItem } from "../api/clientProduct";
 import ProductForm from "../components/ProductForm";
 
 function Edit() {
@@ -30,17 +30,15 @@ function Edit() {
     //prendo il prodotto
     //lo salvo in uno stato
     getProduct(id);
-  }, [id]);
+  }, []);
 
   // genstisce l'invio del form
   // genstisce l'invio del form
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (formData) => {
+    console.log(formData);
     try {
-      e.preventDefault(); // previene comportamento form predef
       setIsLoading(true);
-      // chiama funzione asinc addItemper aggiungere un nuovo elemento
-      const res = await addItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
-
+      const res = await editItem({ ...formData, id });
       console.log(res);
       navigate("/");
     } catch (error) {

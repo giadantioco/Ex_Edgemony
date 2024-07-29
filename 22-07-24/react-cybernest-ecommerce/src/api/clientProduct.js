@@ -61,6 +61,21 @@ export const addItem = (body) => {
   });
 };
 
+// simulazione chiamata API per modificare un elemento (PUT)
+export const editItem = (body) => {
+  // body rappresenta i dati dell'elemento da aggiungere
+  return new Promise((resolve) => {
+    // la funzione restituisce una nuova promessa (questo simula un'operazione asincrona)
+    setTimeout(() => {
+      console.log("Editing Product: ", body);
+      // simulazione ritardo asincrono di 1000ms
+      resolve({
+        ...body,
+      });
+    }, 3000);
+  });
+};
+
 export const getProductDetail = (id) => {
   console.log(id);
   return new Promise((resolve, reject) => {
