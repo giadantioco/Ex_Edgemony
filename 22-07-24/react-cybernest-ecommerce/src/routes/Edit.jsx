@@ -30,17 +30,14 @@ function Edit() {
     //prendo il prodotto
     //lo salvo in uno stato
     getProduct(id);
-  }, [id]);
+  }, []);
 
   // genstisce l'invio del form
-  // genstisce l'invio del form
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (formData) => {
+    console.log(formData);
     try {
-      e.preventDefault(); // previene comportamento form predef
       setIsLoading(true);
-      // chiama funzione asinc addItemper aggiungere un nuovo elemento
-      const res = await editItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
-
+      const res = await editItem(form);
       console.log(res);
       navigate("/");
     } catch (error) {
