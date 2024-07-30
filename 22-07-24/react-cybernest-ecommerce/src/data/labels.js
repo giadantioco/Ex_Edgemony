@@ -24,4 +24,5 @@ export const labels = {
   // error message
   errorUhoh: "Uh-oh!",
   // create page
+  createInsertNewItem: "Insert new item",
 };
