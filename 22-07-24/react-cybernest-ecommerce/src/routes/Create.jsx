@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { addItem } from "../api/clientProduct";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import ProductForm from "../components/ProductForm";
 import { labels } from "../data/labels";
 
@@ -32,8 +31,15 @@ function Create() {
       const res = await addItem(form);
       setForm(initialState);
       console.log(res);
-      toast.success(`${form.title} added to cart!`, {
+      toast("🦄 Item successfully added!", {
         position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
       navigate("/");
       setIsError({ message: "", isError: false });
