@@ -2,6 +2,9 @@ import { labels } from "./data/labels";
 import { useEffect, useState } from "react";
 import { getProductList, deleteItem } from "./api/clientProduct";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function App() {
   const [productList, setProductList] = useState([]);
@@ -27,20 +30,27 @@ function App() {
     try {
       const res = await deleteItem(id);
       console.log(res);
-      getProducts();
+      toast("🦄 Item successfully deleted!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
       setIsLoading(true);
+      getProducts();
     } catch (error) {
       console.log(error);
-    } finally {
-      console.log(id);
     }
   };
 
   useEffect(() => {
     getProducts();
   }, []);
-
-  if (isLoading) return <p>{labels.isLoading}</p>;
 
   return (
     <>
@@ -76,56 +86,76 @@ function App() {
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     {labels.productTableIsbn}
                   </th>
-                  <th className="px-4 py-2"></th>
                 </tr>
               </thead>
 
               <tbody className="divide-y divide-gray-200">
-                {productList
-                  // aggiungo filter al map
-                  .filter((product) =>
-                    product.item.toLowerCase().includes(filter)
-                  )
-                  .map((product) => {
-                    return (
-                      <tr key={product.id}>
+                {isLoading
+                  ? Array.from({ length: 5 }).map((_, index) => (
+                      <tr key={index}>
                         <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          {product.item}
+                          <Skeleton width={100} />
                         </td>
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                          {product.category}
+                          <Skeleton width={80} />
                         </td>
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                          {product.quantity}
+                          <Skeleton width={50} />
                         </td>
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                          {product.isbn}
+                          <Skeleton width={100} />
                         </td>
                         <td className="whitespace-nowrap px-4 py-2 flex gap-2">
-                          <Link
-                            to={`/edit/${product.id}`}
-                            className="inline-block rounded bg-green-600 px-4 py-2 text-xs font-medium text-white hover:bg-green-700"
-                          >
-                            {labels.productTableBtnEdit}
-                          </Link>
-
-                          <Link
-                            to={`/products/${product.id}`}
-                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-                          >
-                            {labels.productTableBtnView}
-                          </Link>
-
-                          <button
-                            onClick={() => handleDelete(product.id)}
-                            className="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700"
-                          >
-                            {labels.productTableBtnDelete}
-                          </button>
+                          <Skeleton width={60} height={30} />
+                          <Skeleton width={60} height={30} />
+                          <Skeleton width={60} height={30} />
                         </td>
                       </tr>
-                    );
-                  })}
+                    ))
+                  : productList
+                      .filter((product) =>
+                        product.item.toLowerCase().includes(filter)
+                      )
+                      .map((product) => {
+                        return (
+                          <tr key={product.id}>
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                              {product.item}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                              {product.category}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                              {product.quantity}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                              {product.isbn}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 flex gap-2">
+                              <Link
+                                to={`/edit/${product.id}`}
+                                className="inline-block rounded bg-green-600 px-4 py-2 text-xs font-medium text-white hover:bg-green-700"
+                              >
+                                {labels.productTableBtnEdit}
+                              </Link>
+
+                              <Link
+                                to={`/products/${product.id}`}
+                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                              >
+                                {labels.productTableBtnView}
+                              </Link>
+
+                              <button
+                                onClick={() => handleDelete(product.id)}
+                                className="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700"
+                              >
+                                {labels.productTableBtnDelete}
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
               </tbody>
             </table>
           </div>

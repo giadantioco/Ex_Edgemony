@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getProductDetail, editItem } from "../api/clientProduct";
 import ProductForm from "../components/ProductForm";
+import { toast } from "react-toastify";
 
 function Edit() {
   const { id } = useParams();
@@ -37,12 +38,20 @@ function Edit() {
   // genstisce l'invio del form
   const handleSubmit = async (e) => {
     try {
-      e.preventDefault(); // previene comportamento form predef
+      e.preventDefault();
       setIsLoading(true);
-      // chiama funzione asinc addItemper aggiungere un nuovo elemento
-      const res = await editItem(form); // passa attuale stato del form con i dati inseriti dal'utente come argomento
-
+      const res = await editItem(form);
       console.log(res);
+      toast("🦄 Item successfully edited!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       navigate("/");
     } catch (error) {
       console.log(error);
