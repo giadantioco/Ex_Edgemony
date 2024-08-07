@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { addItem } from "../api/clientProduct";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import ProductForm from "../components/ProductForm";
 import { labels } from "../data/labels";
 

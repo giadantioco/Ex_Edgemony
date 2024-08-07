@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getProductDetail } from "../api/clientProduct";
 import { useEffect, useState } from "react";
+import ErrorComponent from "../components/ErrorComponent";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -16,9 +17,7 @@ function ProductDetail() {
       setProduct(data);
     } catch (error) {
       console.log(error);
-      setIsError((prevState) => {
-        return { prevState, message: error.message, isError: true };
-      });
+      setIsError({ message: error.message, isError: true });
     } finally {
       setIsLoading(false);
     }
@@ -86,7 +85,7 @@ function ProductDetail() {
                   {product.category}
                 </p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  {product.title}
+                  {product.item}
                 </h1>
 
                 <p className="mt-6 text-xl leading-8 text-gray-700">

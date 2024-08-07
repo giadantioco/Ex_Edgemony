@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "isbn": "0-3733-1808-1",
+      "item": "APPLE - iPhone 15 128GB",
+      "category": "smartphone",
+      "quantity": 15,
+      "cover": "https://www.phoneclick.it/img/catalogo/a25%205g%20128gb%20blue.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "2",
+      "isbn": "0-3733-1808-1",
+      "item": "SAMSUNG - GALAXY A25 5G 128GB",
+      "category": "smartphone",
+      "quantity": 15,
+      "cover": "https://www.phoneclick.it/img/catalogo/a25%205g%20128gb%20blue.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "3",
+      "isbn": "0-3733-1808-1",
+      "item": "APPLE - MacBook Air 13 M2 8-core CPU 8-core GPU 256GB SSD",
+      "category": "laptop",
+      "quantity": 7,
+      "cover": "https://pskmegastore.com/1296096-medium_default/apple-macbook-air-13-m1-8-core-cpu-7-core-gpu-256gb-argento.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ]
+}
