@@ -26,15 +26,6 @@
       "quantity": 7,
       "cover": "https://pskmegastore.com/1296096-medium_default/apple-macbook-air-13-m1-8-core-cpu-7-core-gpu-256gb-argento.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "id": "99c3deca-55b4-4662-84b2-b7fc87f9bf11",
-      "item": "phone pippo",
-      "category": "smartphone",
-      "quantity": "5",
-      "isbn": "564646fsdxvd46+6",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-      "image": ""
     }
   ]
 }
