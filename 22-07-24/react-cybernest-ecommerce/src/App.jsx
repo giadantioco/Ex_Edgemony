@@ -30,9 +30,18 @@ function App() {
   const handleDelete = async (id) => {
     try {
       const res = await deleteItem(id);
+
       console.log("item deleted: ", res);
       toast.success(`${res.item} succesfully deleted!`, {
+
         position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
 
       setIsLoading(true);

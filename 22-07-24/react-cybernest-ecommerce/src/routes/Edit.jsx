@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getProductDetail, editItem } from "../api/clientProduct";
 import ProductForm from "../components/ProductForm";
+import { toast } from "react-toastify";
 
 function Edit() {
   const { id } = useParams();
@@ -33,8 +34,20 @@ function Edit() {
     try {
       e.preventDefault();
       setIsLoading(true);
+
       const res = await editItem(id, form);
+
       console.log(res);
+      toast("🦄 Item successfully edited!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       navigate("/");
     } catch (error) {
       console.log(error);

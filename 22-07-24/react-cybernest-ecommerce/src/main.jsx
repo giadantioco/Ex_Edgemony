@@ -42,8 +42,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
     <ToastContainer
-      position="top-right"
-      autoClose={3000}
+      position="top-left"
+      autoClose={5000}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
@@ -51,7 +51,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="colored"
+      theme="light"
+      transition:Bounce
     />
   </React.StrictMode>
 );
