@@ -30,8 +30,17 @@ function Create() {
       const res = await addItem(form);
       console.log("response-data:", res);
       setForm(initialState);
+
       toast.success(`${form.item} added to cart!`, {
+
         position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
       navigate("/");
       setIsError({ message: "", isError: false });
