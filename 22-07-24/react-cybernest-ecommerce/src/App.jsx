@@ -14,6 +14,7 @@ function App() {
   const getProducts = async () => {
     try {
       const data = await getProductList();
+      console.log(data);
       setProductList(data);
     } catch (error) {
       console.log(error);
@@ -23,14 +24,16 @@ function App() {
   };
 
   const handleChange = (e) => {
-    setFilter(e.target.value.toLowerCase());
+    setFilter(e.target.value.toLowerCase() || "");
   };
 
   const handleDelete = async (id) => {
     try {
       const res = await deleteItem(id);
-      console.log(res);
-      toast("🦄 Item successfully deleted!", {
+
+      console.log("item deleted: ", res);
+      toast.success(`${res.item} succesfully deleted!`, {
+
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -114,7 +117,9 @@ function App() {
                     ))
                   : productList
                       .filter((product) =>
-                        product.item.toLowerCase().includes(filter)
+                        (product.item || "")
+                          .toLowerCase()
+                          .includes(filter?.toLowerCase())
                       )
                       .map((product) => {
                         return (

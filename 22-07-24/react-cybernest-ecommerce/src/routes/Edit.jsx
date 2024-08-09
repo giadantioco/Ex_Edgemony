@@ -8,16 +8,14 @@ function Edit() {
   const { id } = useParams();
 
   const navigate = useNavigate();
-
-  const [product, setProduct] = useState(null);
-  const [form, setForm] = useState({});
-  const [isError, setIsError] = useState({ messagge: "", isError: false });
+  const [form, setForm] = useState(null);
+  const [isError, setIsError] = useState({ message: "", isError: false });
   const [isLoading, setIsLoading] = useState(true);
 
   const getProduct = async (id) => {
     try {
       const data = await getProductDetail(id);
-      setProduct(data);
+      setForm(data);
     } catch (error) {
       console.log(error);
       setIsError((prevState) => {
@@ -29,18 +27,16 @@ function Edit() {
   };
 
   useEffect(() => {
-    //prendo il prodotto
-    //lo salvo in uno stato
     getProduct(id);
   }, [id]);
 
-  // genstisce l'invio del form
-  // genstisce l'invio del form
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       setIsLoading(true);
-      const res = await editItem(form);
+
+      const res = await editItem(id, form);
+
       console.log(res);
       toast("🦄 Item successfully edited!", {
         position: "top-right",
@@ -55,17 +51,23 @@ function Edit() {
       navigate("/");
     } catch (error) {
       console.log(error);
-      setIsError((prevState) => {
-        return { ...prevState, message: error.message, isError: true };
+      setIsError(() => {
+        return { message: error.message, isError: true };
       });
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prevForm) => ({ ...prevForm, [name]: value }));
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setForm((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
   };
 
   if (isLoading) {
@@ -73,7 +75,7 @@ function Edit() {
   }
 
   if (isError.isError) {
-    return <div>Error: </div>;
+    return <div>Error: {isError.message}</div>;
   }
 
   return (
@@ -89,9 +91,9 @@ function Edit() {
           </p>
 
           <ProductForm
-            value={product}
+            form={form}
             onSubmit={handleSubmit}
-            onChange={handleFormChange}
+            onChange={handleChange}
           ></ProductForm>
         </div>
       </div>
