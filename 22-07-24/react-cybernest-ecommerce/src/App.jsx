@@ -24,14 +24,14 @@ function App() {
   };
 
   const handleChange = (e) => {
-    setFilter(e.target.value.toLowerCase());
+    setFilter(e.target.value.toLowerCase() || "");
   };
 
   const handleDelete = async (id) => {
     try {
       const res = await deleteItem(id);
-      console.log(res);
-      toast.success(`${res.title} succesfully deleted!`, {
+      console.log("item deleted: ", res);
+      toast.success(`${res.item} succesfully deleted!`, {
         position: "top-right",
       });
 
@@ -108,7 +108,9 @@ function App() {
                     ))
                   : productList
                       .filter((product) =>
-                        product.item.toLowerCase().includes(filter)
+                        (product.item || "")
+                          .toLowerCase()
+                          .includes(filter?.toLowerCase())
                       )
                       .map((product) => {
                         return (

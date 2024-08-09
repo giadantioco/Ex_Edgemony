@@ -1,52 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-function ProductForm({ value, onSubmit }) {
-  // console.log(value);
-  const initialState = {
-    title: value?.title || "",
-    category: value?.category || "",
-    quantity: value?.quantity || "",
-    isbn: value?.isbn || "",
-    description: value?.description || "",
-  };
-
-  const [form, setForm] = useState(initialState);
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // Verifica se i campi sono validi, considerando che potrebbero essere undefined o null
-  // const isFieldValid = (field) => {
-  //   return typeof field === "string" && field.trim().length > 0;
+function ProductForm({ form, onChange, onSubmit }) {
+  // // console.log(value);
+  // const initialState = {
+  //   item: value?.item || "",
+  //   category: value?.category || "",
+  //   quantity: value?.quantity || "",
+  //   isbn: value?.isbn || "",
+  //   description: value?.description || "",
   // };
 
-  // const formValidation = !(
-  //   isFieldValid(form.title) &&
-  //   isFieldValid(form.category) &&
-  //   isFieldValid(form.quantity) &&
-  //   isFieldValid(form.isbn) &&
-  //   isFieldValid(form.description)
-  // );
+  // const [form, setForm] = useState(initialState);
 
   useEffect(() => {
     console.log(form);
   }, [form]);
-
-  // gestisce cambiamento input del form
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setForm((prevState) => {
-      // restituisce il nuovo stato basato sul precedente
-      return {
-        ...prevState, // copia tutte le proprietà dello stato precedente
-        [name]: value,
-      }; // sovrascrive il valore della prop specificata con il nuovo valore
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(form);
-  };
 
   return (
     <form
@@ -59,12 +27,12 @@ function ProductForm({ value, onSubmit }) {
 
         <div className="relative">
           <input
-            name="title"
-            value={form.title}
-            onChange={handleChange}
+            name="item"
+            value={form.item}
+            onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter item title"
+            placeholder="Enter item name"
           />
         </div>
       </div>
@@ -76,7 +44,7 @@ function ProductForm({ value, onSubmit }) {
           <input
             name="category"
             value={form.category}
-            onChange={handleChange}
+            onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter category"
@@ -91,7 +59,7 @@ function ProductForm({ value, onSubmit }) {
           <input
             name="quantity"
             value={form.quantity}
-            onChange={handleChange}
+            onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter quantity"
@@ -106,7 +74,7 @@ function ProductForm({ value, onSubmit }) {
           <input
             name="isbn"
             value={form.isbn}
-            onChange={handleChange}
+            onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter isbn"
@@ -121,7 +89,7 @@ function ProductForm({ value, onSubmit }) {
           <input
             name="description"
             value={form.description}
-            onChange={handleChange}
+            onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter description"

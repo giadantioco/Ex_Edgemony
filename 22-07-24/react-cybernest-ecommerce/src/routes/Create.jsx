@@ -7,7 +7,7 @@ import { labels } from "../data/labels";
 
 //stato iniziale del form
 const initialState = {
-  title: "",
+  item: "",
   category: "",
   quantity: "",
   isbn: "",
@@ -17,7 +17,6 @@ const initialState = {
 
 function Create() {
   const navigate = useNavigate();
-
   const [form, setForm] = useState(initialState);
   const [isError, setIsError] = useState({
     message: "Try again or reload the page",
@@ -29,9 +28,9 @@ function Create() {
     e.preventDefault();
     try {
       const res = await addItem(form);
+      console.log("response-data:", res);
       setForm(initialState);
-      console.log(res);
-      toast.success(`${form.title} added to cart!`, {
+      toast.success(`${form.item} added to cart!`, {
         position: "top-right",
       });
       navigate("/");
@@ -40,6 +39,17 @@ function Create() {
       console.log(error);
       setIsError({ message: error.message, isError: true });
     }
+  };
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setForm((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
   };
 
   return (
@@ -54,7 +64,12 @@ function Create() {
             item, category, quantity, isbn, description, image
           </p>
 
-          <ProductForm onSubmit={handleSubmit} form={form} setForm={setForm} />
+          <ProductForm
+            form={form}
+            onSubmit={handleSubmit}
+            onChange={handleChange}
+          />
+
           {isError.isError && (
             <div
               role="alert"
