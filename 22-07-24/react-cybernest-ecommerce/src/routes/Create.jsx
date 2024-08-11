@@ -32,7 +32,6 @@ function Create() {
       setForm(initialState);
 
       toast.success(`${form.item} added to cart!`, {
-
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

@@ -4,7 +4,7 @@
 
 @layer base {
   h1 {
-    @apply text-2xl;
+    @apply font-syne;
     @apply font-bold;
   }
   h1 {

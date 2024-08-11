@@ -1,8 +1,9 @@
 export const labels = {
   // client product object
-  productTableItem: "Item",
-  productTableCategory: "Category",
-  productTableQuantity: "Quantity",
+  productTableItem: "ITEM",
+  productTableEmpty: "",
+  productTableCategory: "CATEGORY",
+  productTableQuantity: "QUANTITY",
   productTableIsbn: "ISBN",
   productTableBtnView: "View",
   productTableBtnEdit: "Edit",
@@ -10,15 +11,15 @@ export const labels = {
   // title in home
   productList: "Product List",
   // navbar content
-  logoTitle: "Cybernest",
-  navHome: "Home",
+  logoTitle: "CYBERNEST",
+  navHome: "Product List",
   navProductDetail: "Product Detail",
   navCreate: "Add Product",
-  navEdit: "Edit Product",
+  navProfile: "User Profile",
 
   // filter title and searchbar
   filterItem: "Filter Item",
-  filterByItem: "filter by item",
+  filterByItem: "Filter by item",
   // loading message
   isLoading: "Is loading",
   // error message
