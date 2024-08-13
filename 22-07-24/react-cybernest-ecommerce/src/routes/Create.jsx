@@ -12,7 +12,8 @@ const initialState = {
   quantity: "",
   isbn: "",
   description: "",
-  image: "",
+  // imageURL: "",
+  // imageFile: null,
 };
 
 function Create() {
@@ -27,6 +28,22 @@ function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // const formData = new FormData();
+
+      // form.Data.append("id", self.crypto.randomUUID());
+
+      // if (form.imageFile) {
+      //   formData.append("image", form.imageFile);
+      // } else if (form.imageURL) {
+      //   formData.append("imageURL", form.imageURL);
+      // }
+
+      // for (const key in form) {
+      //   if (key !== "imgeFile" && key !== "imageUrl") {
+      //     formData.append(key, form[key]);
+      //   }
+      // }
+
       const res = await addItem(form);
       console.log("response-data:", res);
       setForm(initialState);
@@ -60,6 +77,16 @@ function Create() {
     });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setForm((prevState) => ({
+        ...prevState,
+        image: file,
+      }));
+    }
+  };
+
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -76,6 +103,7 @@ function Create() {
             form={form}
             onSubmit={handleSubmit}
             onChange={handleChange}
+            onImageChange={handleImageChange}
           />
 
           {isError.isError && (

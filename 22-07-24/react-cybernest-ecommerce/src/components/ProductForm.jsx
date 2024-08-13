@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import DefaultImage from "../assets/defImage.jpg";
+import EditIcon from "../assets/icon_edit.svg";
 
 function ProductForm({ form, onChange, onSubmit }) {
   // // console.log(value);
@@ -11,6 +13,33 @@ function ProductForm({ form, onChange, onSubmit }) {
   // };
 
   // const [form, setForm] = useState(initialState);
+  const [imageURL, setImageURL] = useState(form.image || DefaultImage);
+
+  const fileUploadRef = useRef();
+  // const handleImageChange = (e) => {
+  //   e.preventDefault();
+  //   console.log(e);
+  //   const file = e.terget.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setImageURL(reader.result);
+  //       onChange({ target: { name: "image", value: file } });
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
+  const handleImageUpload = (e) => {
+    e.preventDefault();
+    fileUploadRef.current.click();
+  };
+
+  const uploadImageDisplay = () => {
+    const uploadedFile = fileUploadRef.current.files[0];
+    const cachedURL = URL.createObjectURL(uploadedFile);
+    setImageURL(cachedURL);
+  };
 
   useEffect(() => {
     console.log(form);
@@ -22,6 +51,35 @@ function ProductForm({ form, onChange, onSubmit }) {
       action="#"
       className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
     >
+      {/* add image */}
+      <div className="relative w-25 h-48">
+        <label htmlFor="image"></label>
+        {imageURL && (
+          <img
+            src={imageURL}
+            alt="Default Image"
+            className="w-25 h-48 object-cover mt-4"
+          />
+        )}
+        <button
+          type="submit"
+          onClick={handleImageUpload}
+          className="absolute bottom-1 right-15 h-15 w-15 "
+        >
+          <img src={EditIcon} alt="Edit" className="object-cover bg-black" />
+        </button>
+        <input
+          id="file"
+          encType="multipart/form-data"
+          type="file"
+          name="image"
+          ref={fileUploadRef}
+          onChange={uploadImageDisplay}
+          hidden
+        />
+      </div>
+
+      {/* add form inputs */}
       <div>
         <label className="sr-only">Title</label>
 
@@ -90,27 +148,14 @@ function ProductForm({ form, onChange, onSubmit }) {
             name="description"
             value={form.description}
             onChange={onChange}
-            type="text"
+            type="textarea"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter description"
+            rows="4"
           />
         </div>
       </div>
-
-      {/* <div>
-        <label className="sr-only">Image</label>
-
-        <div className="relative">
-          <input
-            name="image"
-            onChange={handleChange}
-            type="text"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Add image"
-          />
-        </div>
-      </div> */}
-
+      {/* FORM SUBMIT */}
       <button
         // disabled={formValidation}
         type="submit"

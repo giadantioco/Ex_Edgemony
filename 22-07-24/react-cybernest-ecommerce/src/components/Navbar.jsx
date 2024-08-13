@@ -20,7 +20,7 @@ const menuList = [
   {
     name: labels.navHome,
     path: "/",
-    icon: <i class="fa-solid fa-bars mr-2"></i>,
+    icon: <i className="fa-solid fa-bars mr-2"></i>,
   },
 ];
 

@@ -22,6 +22,12 @@ export const getProductDetail = async (id) => {
 
 export const addItem = async (body) => {
   try {
+    const formData = new FormData();
+
+    for (const key in body) {
+      formData.append(key, body[key]);
+    }
+
     const response = await fetch("http://localhost:3000/products", {
       method: "POST",
       headers: {
