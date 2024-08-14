@@ -8,6 +8,14 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+const MAX_PRODUCTS_DISPLAYED = 20;
+
+const cutDescription = (description, maxWords) => {
+  const words = description.split(" ");
+  if (words.length <= maxWords) return description;
+  return words.slice(0, maxWords).join(" ") + "...";
+};
+
 function App() {
   const [productList, setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -102,66 +110,69 @@ function App() {
               {/* table content */}
               <tbody className="divide-y divide-gray-200">
                 {isLoading
-                  ? Array.from({ length: 6 }).map((_, index) => (
-                      <tr key={index}>
-                        {/* <td className="whitespace-nowrap px-4 py-2  text-gray-900">
+                  ? Array.from({ length: MAX_PRODUCTS_DISPLAYED }).map(
+                      (_, index) => (
+                        <tr key={index}>
+                          {/* <td className="whitespace-nowrap px-4 py-2  text-gray-900">
                           <Skeleton width={50} />
                         </td> */}
-                        <td className="whitespace-nowrap px-4 py-2  text-gray-900">
-                          <Skeleton width={100} />
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-2 text-gray-900">
-                          <Skeleton width={80} />
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-2 text-gray-900">
-                          <Skeleton width={50} />
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-2 text-gray-900">
-                          <Skeleton width={100} />
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-2 flex gap-2">
-                          <Skeleton width={60} height={30} />
-                          <Skeleton width={60} height={30} />
-                          <Skeleton width={60} height={30} />
-                        </td>
-                      </tr>
-                    ))
+                          <td className="whitespace-nowrap px-4 py-2  text-gray-900">
+                            <Skeleton width={100} />
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2 text-gray-900">
+                            <Skeleton width={80} />
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2 text-gray-900">
+                            <Skeleton width={50} />
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2 text-gray-900">
+                            <Skeleton width={100} />
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2 flex gap-2">
+                            <Skeleton width={60} height={30} />
+                            <Skeleton width={60} height={30} />
+                            <Skeleton width={60} height={30} />
+                          </td>
+                        </tr>
+                      )
+                    )
                   : productList
                       .filter((product) =>
-                        (product.item || "")
+                        (product.title || "")
                           .toLowerCase()
                           .includes(filter?.toLowerCase())
                       )
+                      .slice(0, MAX_PRODUCTS_DISPLAYED)
                       .map((product) => {
                         return (
                           <tr key={product.id}>
                             <td className="whitespace-nowrap px-4 py-2 font-large text-gray-900">
                               <img
-                                src={product.image}
-                                alt={product.item}
+                                src={product.category.image}
+                                alt={product.title}
                                 className="w-12 h-12 object-cover rounded-lg"
                               />
                             </td>
                             <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                              {product.item}
+                              {product.title}
                             </td>
                             <td
                               className="whitespace-nowrap px-4 py-2 
                             font-medium text-gray-700"
                             >
-                              {product.category}
+                              {product.category.name}
                             </td>
                             <td
                               className="whitespace-nowrap px-4 py-2 
                             font-medium text-gray-700"
                             >
-                              {product.quantity}
+                              {product.price}
                             </td>
                             <td
                               className="whitespace-nowrap px-4 py-2 
                             font-medium text-gray-700"
                             >
-                              {product.isbn}
+                              {cutDescription(product.description, 5)}
                             </td>
                             <td className="whitespace-nowrap px-4 py-2 flex gap-2">
                               <Link

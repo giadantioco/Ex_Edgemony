@@ -7,18 +7,17 @@ import { labels } from "../data/labels";
 
 //stato iniziale del form
 const initialState = {
-  item: "",
-  category: "",
-  quantity: "",
-  isbn: "",
+  title: "",
+  categoryName: "",
+  price: "",
   description: "",
-  // imageURL: "",
-  // imageFile: null,
+  categoryImage: "",
 };
 
 function Create() {
   const navigate = useNavigate();
   const [form, setForm] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState({
     message: "Try again or reload the page",
     isError: false,
@@ -28,27 +27,26 @@ function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const formData = new FormData();
+      setIsLoading(true);
 
-      // form.Data.append("id", self.crypto.randomUUID());
+      let imageUrl = form.image;
+      if (typeof form.image === "object") {
+        imageUrl = await uploadImage(form.image);
+      }
 
-      // if (form.imageFile) {
-      //   formData.append("image", form.imageFile);
-      // } else if (form.imageURL) {
-      //   formData.append("imageURL", form.imageURL);
-      // }
+      const formData = {
+        title: form.title,
+        price: parseFloat(form.price),
+        description: form.description,
+        categoryId: parseInt(form.category, 10),
+        images: [form.image],
+      };
 
-      // for (const key in form) {
-      //   if (key !== "imgeFile" && key !== "imageUrl") {
-      //     formData.append(key, form[key]);
-      //   }
-      // }
-
-      const res = await addItem(form);
+      const res = await addItem(formData);
       console.log("response-data:", res);
       setForm(initialState);
 
-      toast.success(`${form.item} added to cart!`, {
+      toast.success(`${form.title} added successfully!`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -63,30 +61,30 @@ function Create() {
     } catch (error) {
       console.log(error);
       setIsError({ message: error.message, isError: true });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setForm((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setForm((prevState) => ({
-        ...prevState,
-        image: file,
-      }));
+    const { name, value, type, files } = e.target;
+    if (type === "file") {
+      setForm((prev) => ({ ...prev, [name]: files[0] }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
     }
   };
 
+  // const handleImageChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     const imageUrl = URL.createObjectURL(file);
+  //     setForm((prevState) => ({
+  //       ...prevState,
+  //       image: imageUrl,
+  //     }));
+  //   }
+  // };
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -96,14 +94,14 @@ function Create() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-            item, category, quantity, isbn, description, image
+            title, category-name, price, description and category-image
           </p>
 
           <ProductForm
             form={form}
             onSubmit={handleSubmit}
             onChange={handleChange}
-            onImageChange={handleImageChange}
+            onImageChange={handleChange}
           />
 
           {isError.isError && (

@@ -1,5 +1,5 @@
 export const labels = {
-  // client product object
+  // HOMEEEEEEEEEEEEEEEEE
   productTableItem: "ITEM",
   productTableEmpty: "",
   productTableCategory: "CATEGORY",

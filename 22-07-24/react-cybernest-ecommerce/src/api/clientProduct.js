@@ -1,6 +1,8 @@
 export const getProductList = async () => {
   try {
-    const response = await fetch("http://localhost:3000/products");
+    const response = await fetch(
+      "https://api.escuelajs.co/api/v1/products?offset=0&limit=20"
+    );
     const data = await response.json();
     console.log(data);
     return data;
@@ -11,7 +13,9 @@ export const getProductList = async () => {
 
 export const getProductDetail = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/products/${id}`);
+    const response = await fetch(
+      `https://api.escuelajs.co/api/v1/products/${id}`
+    );
     const data = await response.json();
     console.log(data);
     return data;
@@ -20,20 +24,15 @@ export const getProductDetail = async (id) => {
   }
 };
 
-export const addItem = async (body) => {
+export const addItem = async (formData) => {
   try {
-    const formData = new FormData();
-
-    for (const key in body) {
-      formData.append(key, body[key]);
-    }
-
-    const response = await fetch("http://localhost:3000/products", {
+    const response = await fetch("https://api.escuelajs.co/api/v1/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: self.crypto.randomUUID(), ...body }),
+      // body: JSON.stringify({ id: self.crypto.randomUUID(), ...body }),
+      body: JSON.stringify(formData),
     });
 
     if (!response.ok) {

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import DefaultImage from "../assets/defImage.jpg";
 import EditIcon from "../assets/icon_edit.svg";
 
-function ProductForm({ form, onChange, onSubmit }) {
+function ProductForm({ form, onChange, onSubmit, onImageChange }) {
   // // console.log(value);
   // const initialState = {
   //   item: value?.item || "",
@@ -16,33 +16,22 @@ function ProductForm({ form, onChange, onSubmit }) {
   const [imageURL, setImageURL] = useState(form.image || DefaultImage);
 
   const fileUploadRef = useRef();
-  // const handleImageChange = (e) => {
-  //   e.preventDefault();
-  //   console.log(e);
-  //   const file = e.terget.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setImageURL(reader.result);
-  //       onChange({ target: { name: "image", value: file } });
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
 
   const handleImageUpload = (e) => {
     e.preventDefault();
     fileUploadRef.current.click();
   };
 
-  const uploadImageDisplay = () => {
-    const uploadedFile = fileUploadRef.current.files[0];
+  const uploadImageDisplay = (e) => {
+    const uploadedFile = e.current.files[0];
     const cachedURL = URL.createObjectURL(uploadedFile);
     setImageURL(cachedURL);
+    onImageChange(e);
   };
 
   useEffect(() => {
     console.log(form);
+    // setImageURL(form.image || DefaultImage);
   }, [form]);
 
   return (
@@ -64,8 +53,10 @@ function ProductForm({ form, onChange, onSubmit }) {
         <button
           type="submit"
           onClick={handleImageUpload}
-          className="absolute bottom-1 right-15 h-15 w-15 "
+          className="absolute bottom-1 right-15 h-10 w-20 bg-white"
         >
+          {" "}
+          Upload Picture
           <img src={EditIcon} alt="Edit" className="object-cover bg-black" />
         </button>
         <input
@@ -85,12 +76,12 @@ function ProductForm({ form, onChange, onSubmit }) {
 
         <div className="relative">
           <input
-            name="item"
-            value={form.item}
+            name="title"
+            value={form.title}
             onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter item name"
+            placeholder="Enter title"
           />
         </div>
       </div>
@@ -100,7 +91,7 @@ function ProductForm({ form, onChange, onSubmit }) {
 
         <div className="relative">
           <input
-            name="category"
+            name="categoryName"
             value={form.category}
             onChange={onChange}
             type="text"
@@ -111,31 +102,16 @@ function ProductForm({ form, onChange, onSubmit }) {
       </div>
 
       <div>
-        <label className="sr-only">Quantity</label>
+        <label className="sr-only">Price</label>
 
         <div className="relative">
           <input
-            name="quantity"
-            value={form.quantity}
+            name="price"
+            value={form.price}
             onChange={onChange}
-            type="text"
+            type="number"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter quantity"
-          />
-        </div>
-      </div>
-
-      <div>
-        <label className="sr-only">Isbn</label>
-
-        <div className="relative">
-          <input
-            name="isbn"
-            value={form.isbn}
-            onChange={onChange}
-            type="text"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter isbn"
+            placeholder="Enter price"
           />
         </div>
       </div>

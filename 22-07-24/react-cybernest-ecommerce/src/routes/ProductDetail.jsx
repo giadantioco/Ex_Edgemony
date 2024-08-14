@@ -5,9 +5,7 @@ import ErrorComponent from "../components/ErrorComponent";
 
 function ProductDetail() {
   const { id } = useParams();
-
   const [product, setProduct] = useState(null);
-
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState({ message: "", isError: false });
 
@@ -25,7 +23,7 @@ function ProductDetail() {
 
   useEffect(() => {
     getProduct(id);
-  }, []);
+  }, [id]);
 
   if (isError.isError) return <ErrorComponent message={isError.message} />;
 
@@ -82,10 +80,10 @@ function ProductDetail() {
             <div className="lg:pr-4">
               <div className="lg:max-w-lg">
                 <p className="text-base font-semibold leading-7 text-indigo-600">
-                  {product.category}
+                  {product.category.name}
                 </p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  {product.item}
+                  {product.title}
                 </h1>
 
                 <p className="mt-6 text-xl leading-8 text-gray-700">
@@ -100,8 +98,8 @@ function ProductDetail() {
             <div className="w-[48rem] max-w-none bg-gray-300 h-72 rounded-xl"></div>
           ) : (
             <img
-              alt=""
-              src={product.image}
+              alt={product.title}
+              src={product.category.image}
               className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[25rem]"
             />
           )}
