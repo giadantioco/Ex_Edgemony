@@ -24,28 +24,30 @@ export const getProductDetail = async (id) => {
   }
 };
 
-export const addItem = async (formData) => {
-  try {
-    const response = await fetch("https://api.escuelajs.co/api/v1/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // body: JSON.stringify({ id: self.crypto.randomUUID(), ...body }),
-      body: JSON.stringify(formData),
-    });
+// export const addItem = async (formData) => {
+//   try {
+//     const response = await fetch("https://api.escuelajs.co/api/v1/products", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       // body: JSON.stringify({ id: self.crypto.randomUUID(), ...body }),
+//       body: JSON.stringify(formData),
+//     });
 
-    if (!response.ok) {
-      throw new Error("Failed to add item");
-    }
+//     if (!response.ok) {
+//       const errorData = await response.json();
+//       console.log("Error Data:", errorData);
+//       throw new Error("Failed to add item");
+//     }
 
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to add item");
-  }
-};
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Failed to add item");
+//   }
+// };
 
 export const deleteItem = async (id) => {
   try {

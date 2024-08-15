@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addItem } from "../api/clientProduct";
+// import { addItem } from "../api/clientProduct";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ProductForm from "../components/ProductForm";
@@ -11,7 +11,7 @@ const initialState = {
   categoryName: "",
   price: "",
   description: "",
-  categoryImage: "",
+  imageURL: "",
 };
 
 function Create() {
@@ -29,18 +29,28 @@ function Create() {
     try {
       setIsLoading(true);
 
-      let imageUrl = form.image;
-      if (typeof form.image === "object") {
-        imageUrl = await uploadImage(form.image);
+      let imageUrl = form.imageURL;
+      if (typeof form.imageURL === "object") {
+        imageUrl = await uploadImage(form.imageURL);
       }
 
-      const formData = {
-        title: form.title,
-        price: parseFloat(form.price),
-        description: form.description,
-        categoryId: parseInt(form.category, 10),
-        images: [form.image],
-      };
+      const formData = new FormData();
+      formData.append("title", form.title);
+      formData.append("price", parseFloat(form.price));
+      formData.append("description", form.description);
+      formData.append("categoryId", parseInt(form.categoryName, 10));
+      formData.append("images", form.imageURL); // Append the image URL
+
+      const response = await fetch("https://api.escuelajs.co/api/v1/products", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error Data:", errorData);
+        throw new Error("Failed to add item");
+      }
 
       const res = await addItem(formData);
       console.log("response-data:", res);
@@ -67,12 +77,8 @@ function Create() {
   };
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
-    if (type === "file") {
-      setForm((prev) => ({ ...prev, [name]: files[0] }));
-    } else {
-      setForm((prev) => ({ ...prev, [name]: value }));
-    }
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   // const handleImageChange = (e) => {
@@ -85,6 +91,12 @@ function Create() {
   //     }));
   //   }
   // };
+
+  const handleImageUpload = (file) => {
+    const imageUrl = URL.createObjectURL(file);
+    setForm((prev) => ({ ...prev, imageURL: imageUrl }));
+  };
+
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -101,7 +113,7 @@ function Create() {
             form={form}
             onSubmit={handleSubmit}
             onChange={handleChange}
-            onImageChange={handleChange}
+            onUpload={handleImageUpload}
           />
 
           {isError.isError && (

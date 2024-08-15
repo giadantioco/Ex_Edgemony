@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import DefaultImage from "../assets/defImage.jpg";
 import EditIcon from "../assets/icon_edit.svg";
 
-function ProductForm({ form, onChange, onSubmit, onImageChange }) {
+function ProductForm({ form, onChange, onSubmit, onUpload }) {
   // // console.log(value);
   // const initialState = {
   //   item: value?.item || "",
@@ -14,7 +14,6 @@ function ProductForm({ form, onChange, onSubmit, onImageChange }) {
 
   // const [form, setForm] = useState(initialState);
   const [imageURL, setImageURL] = useState(form.image || DefaultImage);
-
   const fileUploadRef = useRef();
 
   const handleImageUpload = (e) => {
@@ -22,16 +21,21 @@ function ProductForm({ form, onChange, onSubmit, onImageChange }) {
     fileUploadRef.current.click();
   };
 
-  const uploadImageDisplay = (e) => {
-    const uploadedFile = e.current.files[0];
-    const cachedURL = URL.createObjectURL(uploadedFile);
-    setImageURL(cachedURL);
-    onImageChange(e);
+  const uploadImageDisplay = async (e) => {
+    try {
+      const uploadedFile = e.target.files[0];
+      if (!uploadedFile) return;
+      const imageUrl = URL.createObjectURL(uploadedFile);
+      setImageURL(imageUrl);
+      onUpload(uploadedFile);
+    } catch (error) {
+      console.log("Image upload failed", error);
+    }
   };
 
   useEffect(() => {
     console.log(form);
-    // setImageURL(form.image || DefaultImage);
+    setImageURL(form.image || DefaultImage);
   }, [form]);
 
   return (
