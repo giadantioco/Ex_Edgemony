@@ -31,3 +31,9 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.form button:disabled {
+  background-color: var(--gray);
+  color: var(--white);
+  cursor: not-allowed;
+}

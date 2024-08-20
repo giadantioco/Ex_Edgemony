@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
 import styles from "./Form.module.css";
 import { labels } from "../../data/labels";
 
 function Form({ input, handleChange, handleSubmit }) {
+  const isFormValid = () => {
+    return (
+      input.category &&
+      input.productName &&
+      input.description &&
+      input.price &&
+      input.brand &&
+      input.availability
+    );
+  };
+
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+
+  useEffect(() => {
+    setIsSubmitDisabled(!isFormValid());
+  }, [input]);
+
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <label>{labels.category}</label>
@@ -58,7 +76,9 @@ function Form({ input, handleChange, handleSubmit }) {
         <option value="Not Available">{labels.optNotAvailable}</option>
       </select>
 
-      <button type="submit">{labels.submit}</button>
+      <button type="submit" disabled={isSubmitDisabled}>
+        {labels.submit}
+      </button>
     </form>
   );
 }
