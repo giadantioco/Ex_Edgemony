@@ -7,12 +7,12 @@ function Form({ input, handleChange, handleSubmit }) {
       <label>{labels.category}</label>
       <select id="category" value={input.category} onChange={handleChange}>
         <option value="">{labels.optCategory}</option>
-        <option value="abbigliamento">{labels.optClothes}</option>
-        <option value="cura-personale">{labels.optPersonalCare}</option>
-        <option value="igiene">{labels.optBabyCare}</option>
-        <option value="allattamento">{labels.optBreastfeeding}</option>
-        <option value="attrezzature">{labels.optEquipment}</option>
-        <option value="giocattoli">{labels.optToys}</option>
+        <option value="Clothes">{labels.optClothes}</option>
+        <option value="Personal Care">{labels.optPersonalCare}</option>
+        <option value="Baby Care">{labels.optBabyCare}</option>
+        <option value="Breast Feeding">{labels.optBreastfeeding}</option>
+        <option value="Equipment">{labels.optEquipment}</option>
+        <option value="Toys">{labels.optToys}</option>
       </select>
 
       <label>{labels.productName}</label>
@@ -54,8 +54,8 @@ function Form({ input, handleChange, handleSubmit }) {
         onChange={handleChange}
       >
         <option value="">{labels.addAvailability}</option>
-        <option value="disponibile">{labels.optAvailable}</option>
-        <option value="non-disponibile">{labels.optNotAvailable}</option>
+        <option value="Available">{labels.optAvailable}</option>
+        <option value="Not Available">{labels.optNotAvailable}</option>
       </select>
 
       <button type="submit">{labels.submit}</button>
