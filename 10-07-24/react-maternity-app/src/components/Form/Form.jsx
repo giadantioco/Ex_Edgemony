@@ -3,6 +3,17 @@ import styles from "./Form.module.css";
 import { labels } from "../../data/labels";
 
 function Form({ input, handleChange, handleSubmit }) {
+  const capitalizeFirstLetter = (str) => {
+    if (!str) return str;
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
+  const onInputChange = (e) => {
+    const { id, value } = e.target;
+    const capitalisedValue = capitalizeFirstLetter(value);
+    handleChange({ target: { id, value: capitalisedValue } });
+  };
+
   const isFormValid = () => {
     return (
       input.category &&
@@ -23,7 +34,7 @@ function Form({ input, handleChange, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <label>{labels.category}</label>
-      <select id="category" value={input.category} onChange={handleChange}>
+      <select id="category" value={input.category} onChange={onInputChange}>
         <option value="">{labels.optCategory}</option>
         <option value="Clothes">{labels.optClothes}</option>
         <option value="Personal Care">{labels.optPersonalCare}</option>
@@ -38,7 +49,7 @@ function Form({ input, handleChange, handleSubmit }) {
         id="productName"
         placeholder={labels.addProductName}
         value={input.productName}
-        onChange={handleChange}
+        onChange={onInputChange}
       />
 
       <label>{labels.description}</label>
@@ -46,7 +57,7 @@ function Form({ input, handleChange, handleSubmit }) {
         id="description"
         placeholder={labels.addDescription}
         value={input.description}
-        onChange={handleChange}
+        onChange={onInputChange}
       />
 
       <label>{labels.price}</label>
@@ -54,7 +65,7 @@ function Form({ input, handleChange, handleSubmit }) {
         id="price"
         placeholder={labels.addPrice}
         value={input.price}
-        onChange={handleChange}
+        onChange={onInputChange}
       />
 
       <label>{labels.brand}</label>
@@ -62,14 +73,14 @@ function Form({ input, handleChange, handleSubmit }) {
         id="brand"
         placeholder={labels.addBrand}
         value={input.brand}
-        onChange={handleChange}
+        onChange={onInputChange}
       />
 
       <label>{labels.availability}</label>
       <select
         id="availability"
         value={input.availability}
-        onChange={handleChange}
+        onChange={onInputChange}
       >
         <option value="">{labels.addAvailability}</option>
         <option value="Available">{labels.optAvailable}</option>

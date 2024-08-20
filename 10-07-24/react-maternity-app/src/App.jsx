@@ -85,8 +85,12 @@ function App() {
    * @param {*} e
    */
   const handleChange = (e) => {
+    const { id, value } = e.target;
     setInput((prevState) => {
-      return { ...prevState, [e.target.id]: e.target.value };
+      return {
+        ...prevState,
+        [id]: value,
+      };
     });
   };
 
