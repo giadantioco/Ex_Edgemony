@@ -1,64 +1,64 @@
 import styles from "./Form.module.css";
+import { labels } from "../../data/labels";
 
 function Form({ input, handleChange, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label>Categoria</label>
+      <label>{labels.category}</label>
       <select id="category" value={input.category} onChange={handleChange}>
-        <option value="">Seleziona una categoria</option>
-        <option value="abbigliamento">Abbigliamento per la Maternità</option>
-        <option value="cura-personale">Cura Personale e Benessere</option>
-        <option value="accessori-neonato">Accessori per il Neonato</option>
-        <option value="allattamento">Allattamento e Alimentazione</option>
-        <option value="attrezzature">Attrezzature per il Neonato</option>
-        <option value="igiene">Igiene e Cura del Neonato</option>
-        <option value="giocattoli">Giocattoli e Intrattenimento</option>
+        <option value="">{labels.optCategory}</option>
+        <option value="abbigliamento">{labels.optClothes}</option>
+        <option value="cura-personale">{labels.optPersonalCare}</option>
+        <option value="igiene">{labels.optBabyCare}</option>
+        <option value="allattamento">{labels.optBreastfeeding}</option>
+        <option value="attrezzature">{labels.optEquipment}</option>
+        <option value="giocattoli">{labels.optToys}</option>
       </select>
 
-      <label>Nome del Prodotto</label>
+      <label>{labels.productName}</label>
       <input
         id="productName"
-        placeholder="Inserire nome del prodotto"
+        placeholder={labels.addProductName}
         value={input.productName}
         onChange={handleChange}
       />
 
-      <label>Descrizione</label>
+      <label>{labels.description}</label>
       <textarea
         id="description"
-        placeholder="Inserire descrizione"
+        placeholder={labels.addDescription}
         value={input.description}
         onChange={handleChange}
       />
 
-      <label>Prezzo</label>
+      <label>{labels.price}</label>
       <input
         id="price"
-        placeholder="Inserire prezzo"
+        placeholder={labels.addPrice}
         value={input.price}
         onChange={handleChange}
       />
 
-      <label>Marca</label>
+      <label>{labels.brand}</label>
       <input
         id="brand"
-        placeholder="Inserire marca"
+        placeholder={labels.addBrand}
         value={input.brand}
         onChange={handleChange}
       />
 
-      <label>Disponibilità</label>
+      <label>{labels.availability}</label>
       <select
         id="availability"
         value={input.availability}
         onChange={handleChange}
       >
-        <option value="">Seleziona disponibilità</option>
-        <option value="disponibile">Disponibile</option>
-        <option value="non-disponibile">Non disponibile</option>
+        <option value="">{labels.addAvailability}</option>
+        <option value="disponibile">{labels.optAvailable}</option>
+        <option value="non-disponibile">{labels.optNotAvailable}</option>
       </select>
 
-      <button type="submit">Submit</button>
+      <button type="submit">{labels.submit}</button>
     </form>
   );
 }

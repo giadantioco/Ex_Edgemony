@@ -1,11 +1,12 @@
 import Product from "../Product/Product";
 import styles from "./ProductList.module.css";
+import { labels } from "../../data/labels";
 
 function ProductList({ products, filter, handleFilter, handleDelete }) {
   return (
     <div className={styles.productList}>
       <input
-        placeholder="Filtra per categoria"
+        placeholder={labels.filter}
         value={filter}
         onChange={handleFilter}
         className={styles.filterInput}

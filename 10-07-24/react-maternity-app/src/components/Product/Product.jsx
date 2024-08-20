@@ -1,26 +1,30 @@
 import styles from "./Product.module.css";
+import { labels } from "../../data/labels";
 
 function Product({ product, onClick }) {
   return (
     <li className={styles.product}>
       {/* <h2>{product.name}</h2> */}
       <p>
-        <strong>Categoria:</strong> {product.category}
+        <strong>{labels.category}</strong> {product.category}
       </p>
       <p>
-        <strong>Descrizione:</strong> {product.description}
+        <strong>{labels.productName}</strong> {product.productName}
       </p>
       <p>
-        <strong>Prezzo:</strong> {product.price} €
+        <strong>{labels.description}</strong> {product.description}
       </p>
       <p>
-        <strong>Marca:</strong> {product.brand}
+        <strong>{labels.price}</strong> {product.price} €
       </p>
       <p>
-        <strong>Disponibilità:</strong> {product.availability}
+        <strong>{labels.brand}</strong> {product.brand}
+      </p>
+      <p>
+        <strong>{labels.availability}</strong> {product.availability}
       </p>
       <button id={product.id} onClick={onClick}>
-        Elimina
+        {labels.delete}
       </button>
     </li>
   );

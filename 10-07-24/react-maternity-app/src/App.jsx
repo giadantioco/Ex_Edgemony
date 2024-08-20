@@ -6,21 +6,21 @@ import ProductList from "./components/ProductList/ProductList";
 const initialState = [
   {
     id: self.crypto.randomUUID(),
-    category: "abbigliamento",
-    productName: "Maglietta Premaman",
-    description: "Comoda maglietta per le future mamme.",
+    category: "Clothes",
+    productName: "Body suit",
+    description: "0 to 1 month old body suit",
     price: "19.99",
-    brand: "Mothercare",
-    availability: "disponibile",
+    brand: "Asos",
+    availability: "Available",
   },
   {
     id: self.crypto.randomUUID(),
-    category: "cura-personale",
-    productName: "Crema Antismagliature",
-    description: "Previene le smagliature durante la gravidanza.",
+    category: "Personal Care",
+    productName: "Stretch marks cream",
+    description: "Prevent and reduce stretch marks during maternity",
     price: "14.99",
     brand: "Bio-Oil",
-    availability: "disponibile",
+    availability: "Available",
   },
 ];
 

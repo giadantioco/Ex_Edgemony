@@ -1,9 +1,10 @@
 import styles from "./Header.module.css";
+import { labels } from "../../data/labels";
 
 function Header() {
   return (
     <header className={styles.header}>
-      <h1>Prodotti per la Maternità</h1>
+      <h1>{labels.maternityProducts}</h1>
     </header>
   );
 }
