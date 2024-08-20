@@ -47,7 +47,7 @@ function App() {
       if (Number.isInteger(numericValue)) {
         return numericValue.toFixed(2);
       }
-      return numericValue.toFixed(2);
+      return cleanedValue;
     }
 
     return "";
@@ -63,7 +63,7 @@ function App() {
     setInput((prevState) => {
       return {
         ...prevState,
-        [id]: formattedValue,
+        [id]: value,
       };
     });
   };
