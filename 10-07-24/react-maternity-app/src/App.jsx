@@ -38,16 +38,34 @@ function App() {
   const [input, setInput] = useState(initialInput);
   const [filter, setFilter] = useState("");
 
+  const formatPrice = (value) => {
+    const cleanedValue = value.trim();
+
+    if (!isNaN(cleanedValue) && cleanedValue !== "") {
+      const numericValue = parseFloat(cleanedValue);
+
+      if (Number.isInteger(numericValue)) {
+        return numericValue.toFixed(2);
+      }
+      return numericValue.toFixed(2);
+    }
+
+    return "";
+  };
+
   /**
-   * Cancella un articolo dalla lista degli articoli e aggiorna lo stato
+   * Aggiorna lo stato input ogni volta che viene digitato qualcosa negli input della form
    * @param {*} e
    */
-  const handleDelete = (e) => {
-    const tmpProducts = products.filter(
-      (product) => product.id !== e.target.id
-    );
-
-    setProducts(tmpProducts);
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    const formattedValue = id === "price" ? formatPrice(value) : value;
+    setInput((prevState) => {
+      return {
+        ...prevState,
+        [id]: formattedValue,
+      };
+    });
   };
 
   /**
@@ -61,7 +79,7 @@ function App() {
     const category = input.category;
     const productName = input.productName;
     const description = input.description;
-    const price = input.price;
+    const price = formatPrice(input.price);
     const brand = input.brand;
     const availability = input.availability;
     setProducts([
@@ -81,17 +99,15 @@ function App() {
   };
 
   /**
-   * Aggiorna lo stato input ogni volta che viene digitato qualcosa negli input della form
+   * Cancella un articolo dalla lista degli articoli e aggiorna lo stato
    * @param {*} e
    */
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setInput((prevState) => {
-      return {
-        ...prevState,
-        [id]: value,
-      };
-    });
+  const handleDelete = (e) => {
+    const tmpProducts = products.filter(
+      (product) => product.id !== e.target.id
+    );
+
+    setProducts(tmpProducts);
   };
 
   /**
