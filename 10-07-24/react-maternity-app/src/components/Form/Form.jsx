@@ -37,9 +37,9 @@ function Form({ input, handleChange, handleSubmit }) {
       <select id="category" value={input.category} onChange={onInputChange}>
         <option value="">{labels.optCategory}</option>
         <option value="Clothes">{labels.optClothes}</option>
-        <option value="PersonalCare">{labels.optPersonalCare}</option>
-        <option value="BabyCare">{labels.optBabyCare}</option>
-        <option value="BreastFeeding">{labels.optBreastfeeding}</option>
+        <option value="Personalcare">{labels.optPersonalCare}</option>
+        <option value="Babycare">{labels.optBabyCare}</option>
+        <option value="Breastcfeeding">{labels.optBreastfeeding}</option>
         <option value="Equipment">{labels.optEquipment}</option>
         <option value="Toys">{labels.optToys}</option>
       </select>
@@ -63,6 +63,7 @@ function Form({ input, handleChange, handleSubmit }) {
       <label>{labels.price}</label>
       <input
         id="price"
+        type="number"
         placeholder={labels.addPrice}
         value={input.price}
         onChange={onInputChange}

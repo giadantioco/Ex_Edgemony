@@ -3,6 +3,7 @@ import styles from "./ProductList.module.css";
 import { labels } from "../../data/labels";
 
 function ProductList({ products, filter, handleFilter, handleDelete }) {
+  const filterToLower = filter.trim().toLowerCase();
   return (
     <div className={styles.productList}>
       <input
@@ -14,7 +15,9 @@ function ProductList({ products, filter, handleFilter, handleDelete }) {
 
       <ul>
         {products
-          .filter((product) => product.category.includes(filter))
+          .filter((product) =>
+            product.category.toLowerCase().includes(filterToLower)
+          )
           .map((product) => {
             return (
               <Product
