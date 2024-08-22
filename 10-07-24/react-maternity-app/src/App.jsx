@@ -2,6 +2,8 @@ import { useState } from "react";
 import Layout from "./components/Layout/Layout";
 import Form from "./components/Form/Form";
 import ProductList from "./components/ProductList/ProductList";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialState = [
   {
@@ -96,6 +98,7 @@ function App() {
     ]);
 
     setInput(initialInput);
+    toast.success("Product added successfully!");
   };
 
   /**
@@ -108,6 +111,7 @@ function App() {
     );
 
     setProducts(tmpProducts);
+    toast.success("Product deleted successfully!");
   };
 
   /**
@@ -130,6 +134,18 @@ function App() {
         filter={filter}
         handleFilter={handleFilter}
         handleDelete={handleDelete}
+      />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
     </Layout>
   );
