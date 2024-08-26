@@ -8,8 +8,9 @@
 // Cos'è e cosa fa la funzione tokenizer? Spiegalo con parole tue.
 
 // Nella prima fase (parsing) ci sono due ulteriori fasi: l'analisi lessicale e quella sintattica;
-// - Nella prima fase la funzione tokenizer prende il codice originale e lo spezza in questi nuovi elementi, chiamati tokens. Questi tokens sono array che contengono pezzi isolati della sintassi inserita, e posso essere numeri, punteggiatura, operatori o quant'altro.
-// - La seconda fase prende questitokens e li formatta in una rappresentazione che descrive ogni parte della sintassi e la relazione tra loro. Questa fase è conosciuta anche come un'intermedia rappresentazione di un'Abstrac Syntax Tree; Un AST è un oggetto profondamente nestato che rappresenta il codice in un modo che è sia facile da lavorarci assieme, e che ci restituisce informazioni.
+
+// ANALISI LESSICALE
+// - Nella prima fase la funzione tokenizer prende il codice originale e lo spezza in questi nuovi elementi, chiamati tokens. Questi tokens sono array che contengono pezzi isolati della sintassi inserita, e posso essere numeri, punteggiatura, spazi vuoti, parole o singole lettere. Trasformano quello che per noi è l'input inserito in un'array composto a tipo e valore.
 
 function tokenizer(input) {
   let current = 0;
@@ -78,6 +79,62 @@ function tokenizer(input) {
   return tokens;
 }
 
+// ANALISI SINTASSI
+// - La seconda fase prende i tokens e li formatta in una rappresentazione che descrive ogni parte della sintassi e la relazione tra loro. Questa fase è conosciuta anche come un'intermedia rappresentazione di un'Abstrac Syntax Tree; Un AST è un oggetto profondamente nestato che rappresenta il codice in un modo che è sia facile da lavorarci assieme, e che ci restituisce informazioni.
+
+// [{ type: 'paren', value: '(' }, ...]   =>   { type: 'Program', body: [...] }
+
 // Perché è fondamentale avere un parser in un compilatore? Quale ruolo svolge?
 
-// Perchè trasforma i nostri tokens (contenuti in arrays) in una rappresentazione che descrive le parti della sintassi e la rappresentazione tra loro
+// Un parser in un compilatore svolge il ruolo di analizzare un costrutto che si verifica nel testo, e questo lo fa trasformando prima in tokens il nostro testo, e poi analizzando questi tokens ed assegnandogli egli oggetti alla quale verrà passato un tipo ed un valore
+
+function parserer(tokens) {
+  let current = 0;
+  function walk() {
+    let token = tokens[current];
+    if (token.type === "number") {
+      current++;
+      return {
+        type: "NumberLiteral",
+        value: token.value,
+      };
+    }
+    if (token.type === "string") {
+      current++;
+      return {
+        type: "StringLiteral",
+        value: token.value,
+      };
+    }
+    if (token.type === "paren" && token.value === "(") {
+      token = tokens[++current];
+      let node = {
+        type: "CallExpression",
+        name: token.value,
+        params: [],
+      };
+      token = tokens[++current];
+
+      while (
+        token.type !== "paren" ||
+        (token.type === "paren" && token.value !== ")")
+      ) {
+        node.params.push(walk());
+        token = tokens[current];
+      }
+      current++;
+      return node;
+    }
+    throw new TypeError(token.type);
+  }
+  let ast = {
+    type: "Program",
+    body: [],
+  };
+  while (current < tokens.length) {
+    ast.body.push(walk());
+  }
+  return ast;
+}
+
+// Se dovessi creare un conta caratteri in JavaScript, quali parti di questo compilatore ti sarebbero utili?
