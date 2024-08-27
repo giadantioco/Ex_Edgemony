@@ -7,17 +7,19 @@ import { labels } from "../data/labels";
 
 //stato iniziale del form
 const initialState = {
-  title: "",
-  categoryName: "",
-  price: "",
+  item: "",
+  category: "",
+  quantity: "",
+  isbn: "",
   description: "",
-  imageURL: "",
+  image: "",
+  // imageURL: "",
+  // imageFile: null,
 };
 
 function Create() {
   const navigate = useNavigate();
   const [form, setForm] = useState(initialState);
-  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState({
     message: "Try again or reload the page",
     isError: false,
@@ -27,36 +29,39 @@ function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setIsLoading(true);
+      // const formData = new FormData();
 
-      let imageUrl = form.imageURL;
-      if (typeof form.imageURL === "object") {
-        imageUrl = await uploadImage(form.imageURL);
-      }
+      // formData.append("id", self.crypto.randomUUID());
+
+      // formData.append("image", form.image);
+
+      // for (const key in form) {
+      //   if (key !== "image") {
+      //     formData.append(key, form[key]);
+      //   }
+      // }
 
       const formData = new FormData();
-      formData.append("title", form.title);
-      formData.append("price", parseFloat(form.price));
-      formData.append("description", form.description);
-      formData.append("categoryId", parseInt(form.categoryName, 10));
-      formData.append("images", form.imageURL); // Append the image URL
 
-      const response = await fetch("https://api.escuelajs.co/api/v1/products", {
-        method: "POST",
-        body: formData,
-      });
+      formData.append("id", self.crypto.randomUUID());
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error Data:", errorData);
-        throw new Error("Failed to add item");
+      if (form.imageFile) {
+        formData.append("image", form.imageFile);
+      } else if (form.imageURL) {
+        formData.append("imageURL", form.imageURL);
       }
 
-      const res = await addItem(formData);
+      for (const key in form) {
+        if (key !== "imgeFile" && key !== "imageUrl") {
+          formData.append(key, form[key]);
+        }
+      }
+
+      const res = await addItem(form);
       console.log("response-data:", res);
       setForm(initialState);
 
-      toast.success(`${form.title} added successfully!`, {
+      toast.success(`${form.item} added to cart!`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -71,30 +76,28 @@ function Create() {
     } catch (error) {
       console.log(error);
       setIsError({ message: error.message, isError: true });
-    } finally {
-      setIsLoading(false);
     }
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const name = e.target.name;
+    const value = e.target.value;
+    setForm((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
   };
 
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const imageUrl = URL.createObjectURL(file);
-  //     setForm((prevState) => ({
-  //       ...prevState,
-  //       image: imageUrl,
-  //     }));
-  //   }
-  // };
-
-  const handleImageUpload = (file) => {
-    const imageUrl = URL.createObjectURL(file);
-    setForm((prev) => ({ ...prev, imageURL: imageUrl }));
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setForm((prevState) => ({
+        ...prevState,
+        image: file,
+      }));
+    }
   };
 
   return (
@@ -106,14 +109,14 @@ function Create() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-            title, category-name, price, description and category-image
+            item, category, quantity, isbn, description, image
           </p>
 
           <ProductForm
             form={form}
             onSubmit={handleSubmit}
             onChange={handleChange}
-            onUpload={handleImageUpload}
+            onImageChange={handleImageChange}
           />
 
           {isError.isError && (

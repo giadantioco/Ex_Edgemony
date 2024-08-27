@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import DefaultImage from "../assets/defImage.jpg";
 import EditIcon from "../assets/icon_edit.svg";
 
-function ProductForm({ form, onChange, onSubmit, onUpload }) {
+function ProductForm({ form, onChange, onSubmit, onImageChange }) {
   // // console.log(value);
   // const initialState = {
   //   item: value?.item || "",
@@ -14,6 +14,7 @@ function ProductForm({ form, onChange, onSubmit, onUpload }) {
 
   // const [form, setForm] = useState(initialState);
   const [imageURL, setImageURL] = useState(form.image || DefaultImage);
+
   const fileUploadRef = useRef();
 
   const handleImageUpload = (e) => {
@@ -21,21 +22,15 @@ function ProductForm({ form, onChange, onSubmit, onUpload }) {
     fileUploadRef.current.click();
   };
 
-  const uploadImageDisplay = async (e) => {
-    try {
-      const uploadedFile = e.target.files[0];
-      if (!uploadedFile) return;
-      const imageUrl = URL.createObjectURL(uploadedFile);
-      setImageURL(imageUrl);
-      onUpload(uploadedFile);
-    } catch (error) {
-      console.log("Image upload failed", error);
-    }
+  const uploadImageDisplay = (e) => {
+    const uploadedFile = fileUploadRef.current.files[0];
+    const cachedURL = URL.createObjectURL(uploadedFile);
+    setImageURL(cachedURL);
+    onImageChange(e);
   };
 
   useEffect(() => {
     console.log(form);
-    setImageURL(form.image || DefaultImage);
   }, [form]);
 
   return (
@@ -80,12 +75,12 @@ function ProductForm({ form, onChange, onSubmit, onUpload }) {
 
         <div className="relative">
           <input
-            name="title"
-            value={form.title}
+            name="item"
+            value={form.item}
             onChange={onChange}
             type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter title"
+            placeholder="Enter item name"
           />
         </div>
       </div>
@@ -95,7 +90,7 @@ function ProductForm({ form, onChange, onSubmit, onUpload }) {
 
         <div className="relative">
           <input
-            name="categoryName"
+            name="category"
             value={form.category}
             onChange={onChange}
             type="text"
@@ -106,16 +101,31 @@ function ProductForm({ form, onChange, onSubmit, onUpload }) {
       </div>
 
       <div>
-        <label className="sr-only">Price</label>
+        <label className="sr-only">Quantity</label>
 
         <div className="relative">
           <input
-            name="price"
-            value={form.price}
+            name="quantity"
+            value={form.quantity}
             onChange={onChange}
-            type="number"
+            type="text"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter price"
+            placeholder="Enter quantity"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="sr-only">Isbn</label>
+
+        <div className="relative">
+          <input
+            name="isbn"
+            value={form.isbn}
+            onChange={onChange}
+            type="text"
+            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="Enter isbn"
           />
         </div>
       </div>
