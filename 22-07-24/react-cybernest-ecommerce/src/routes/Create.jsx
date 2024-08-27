@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { addItem } from "../api/clientProduct";
+import { addItem } from "../api/clientProduct";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ProductForm from "../components/ProductForm";
@@ -7,14 +7,11 @@ import { labels } from "../data/labels";
 
 //stato iniziale del form
 const initialState = {
-  item: "",
-  category: "",
-  quantity: "",
-  isbn: "",
-  description: "",
-  image: "",
-  // imageURL: "",
-  // imageFile: null,
+  title: "New Product",
+  price: 10,
+  description: "A description",
+  categoryId: 1,
+  images: ["https://placeimg.com/640/480/any"],
 };
 
 function Create() {
